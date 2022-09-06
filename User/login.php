@@ -1,9 +1,6 @@
 <?php
 include('../connection.php');
 session_start();
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +17,8 @@ session_start();
         <input type="email" name="email">
         <label for="">Password</label>
         <input type="password" name="password">
-        <input type ="submit" name="submit" value="Login" >
+        <input type ="submit" name="submit" value="Login">
+        <a href="registration.php">Not registred yet? click this to register</a>
     </form>
 
     
