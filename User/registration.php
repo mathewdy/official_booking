@@ -3,8 +3,6 @@
 include('../connection.php');
 date_default_timezone_set('Asia/Manila');
 ob_start();
-session_start();
-
 ?>
 
 
