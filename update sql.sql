@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2022 at 04:45 AM
+-- Generation Time: Sep 08, 2022 at 01:33 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -42,7 +42,6 @@ CREATE TABLE `admin` (
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
   `user_id` varchar(50) NOT NULL,
-  `destination_from` varchar(50) NOT NULL,
   `destination_to` varchar(50) NOT NULL,
   `departure_date` date NOT NULL,
   `return_date` date NOT NULL,
@@ -67,6 +66,19 @@ CREATE TABLE `guests` (
   `email` varchar(50) NOT NULL,
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `promos`
+--
+
+CREATE TABLE `promos` (
+  `id` int(11) NOT NULL,
+  `place` varchar(50) NOT NULL,
+  `inclusions` varchar(250) NOT NULL,
+  `price` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -113,6 +125,12 @@ ALTER TABLE `guests`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `promos`
+--
+ALTER TABLE `promos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -133,6 +151,12 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `promos`
+--
+ALTER TABLE `promos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
