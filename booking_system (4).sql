@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2022 at 11:45 AM
+-- Generation Time: Sep 11, 2022 at 11:12 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -95,7 +95,7 @@ CREATE TABLE `promos` (
 
 CREATE TABLE `reset_passwords` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `code` varchar(50) NOT NULL,
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
@@ -155,14 +155,15 @@ ALTER TABLE `promos`
 --
 ALTER TABLE `reset_passwords`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `email` (`email`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -218,7 +219,7 @@ ALTER TABLE `guests`
 -- Constraints for table `reset_passwords`
 --
 ALTER TABLE `reset_passwords`
-  ADD CONSTRAINT `reset_passwords_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `reset_passwords_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
