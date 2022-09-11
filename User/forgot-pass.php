@@ -1,12 +1,14 @@
 <?php
 include('../connection.php');
-    require ("PHPMailer.php");
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require ("PHPMailer.php");
     require("SMTP.php");
     require("Exception.php");
-    
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
-    use PHPMailer\PHPMailer\SMTP;
 
 
 
@@ -31,7 +33,7 @@ include('../connection.php');
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             
                 //Recipients
-                $mail->SetFrom('PDMES');
+                $mail->SetFrom('thaddeusgamit31@gmail.com');
                 $mail->addAddress($email);
                       //Add a recipient
             
