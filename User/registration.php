@@ -1,6 +1,7 @@
 <?php
 
 include('../connection.php');
+date_default_timezone_set('Asia/Manila');
 
 ob_start();
 ?>
@@ -45,6 +46,12 @@ if(isset($_POST['registartion'])){
     $dateCreated = date("Y-m-d h:i:a");
     $dateUpdated = date("Y-m-d h:i:a");
 
+            $year = date('Y');
+            $rand = rand(9999, 1111);
+            $user_id = ($year.$rand);
+
+            
+
 
     $first_name = $_POST['first_name'];
     $middle_name = $_POST['middle_name'];
@@ -58,9 +65,30 @@ if(isset($_POST['registartion'])){
     $new_password = password_hash($password,PASSWORD_DEFAULT);
             
 
-    //validation of users
-            
-    $validation_reg = "SELECT  `first_name`, `middle_name`, `last_name`, `email` FROM 
+    //validation of userid
+
+
+    $validation_id = "SELECT `user_id` FROM `users` WHERE user_id = '$user_id'";
+    $validate_userid = mysqli_query($conn,$validation_id);
+
+
+    if(mysqli_num_rows($validate_userid) > 0){
+
+
+            //generate another user id
+        $user_id = ($year.$rand);
+
+
+    }
+
+
+    else{
+
+
+        // validation of user
+
+
+        $validation_reg = "SELECT  `first_name`, `middle_name`, `last_name`, `email` FROM 
     `users` WHERE email = '$email' ";
     $validate = mysqli_query($conn,$validation_reg);
 
@@ -76,16 +104,32 @@ if(isset($_POST['registartion'])){
         //insert of registartion
 
 
-        $insert_registration = "INSERT INTO  `users`(`first_name`, `middle_name`, `last_name`, `birthday`, `contact_number`, `email`, `password`, `date_time_created`) 
-        VALUES ('$first_name','$middle_name', '$last_name','$date_of_birth', '$contact_number', '$email', '$new_password', '$dateCreated')";
+
+        $insert_registration = "INSERT INTO  `users`(`user_id`,`first_name`, `middle_name`, `last_name`, `birthday`, `contact_number`, `email`, `password`, `date_time_created`) 
+        VALUES ('$user_id','$first_name','$middle_name', '$last_name','$date_of_birth', '$contact_number', '$email', '$new_password', '$dateCreated')";
     
             $run_insert_registration = mysqli_query($conn,$insert_registration);
     
             if($run_insert_registration){
-
         
-                echo"<script>window.location.href='login.php' </script>";
                 
+            
+                
+
+                $insert_reset = "INSERT INTO `reset_passwords`(`email`,`date_time_created`) VALUES ('$email','$dateCreated')";
+                $run_insert_reset=mysqli_query($conn,$insert_reset);
+                
+                if($run_insert_reset){
+
+
+                    echo"<script>window.location.href='login.php' </script>";
+
+                }
+
+                else {
+
+                    $conn->error;
+                }
                 
                
         
@@ -97,6 +141,13 @@ if(isset($_POST['registartion'])){
         
 
     }
+
+
+    }
+
+
+            
+    
 
 
 

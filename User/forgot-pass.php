@@ -1,5 +1,6 @@
 <?php
 include('../connection.php');
+session_start();
 
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -12,7 +13,7 @@ require ("PHPMailer.php");
 
 
 
-        function sendMail($email){
+        function sendMail($email,$otp){
 
            
           
@@ -39,8 +40,8 @@ require ("PHPMailer.php");
             
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
-                $mail->Subject = "SF10 from PDMES";
-                $mail->Body    = "SF10 for this specific student" ;
+                $mail->Subject = "OTP";
+                $mail->Body    = "This is your otp ".$otp." Please don't reply" ;
     
                 $mail->send();
                 return true;
@@ -92,13 +93,37 @@ if(isset($_POST['submit'])){
 
     if(mysqli_num_rows($validate) > 0){
         
-       
-            sendMail($email);
-            $code = rand(999999, 111111);
-            print_r($code);
+        $otp = rand(9999, 1111);
+        
+           if(sendMail($email,$otp)){
+
+            $_SESSION['email'] =$email;
+            $_SESSION['otp'] = $otp;
+            $timestamp =  $_SERVER["REQUEST_TIME"]; 
+            $_SESSION['time'] = $timestamp;
+            header("Location: otp-pass.php");
+            
+
+
+            
+           }
+
+
+           else{
+
+            echo"error";
+           }
+
+            
+
+            
+           
+            
+
+
         
 
-      echo "balat sa pwet";
+    
 
     }
 
