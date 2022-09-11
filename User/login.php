@@ -18,7 +18,8 @@ session_start();
         <label for="">Password</label>
         <input type="password" name="password">
         <input type ="submit" name="submit" value="Login">
-        <a href="registration.php">Not registred yet? click this to register</a>
+        <a href="registration.php">Sign up</a>
+        <a href="forgot-pass.php">Forgot password</a>
     </form>
 
     
