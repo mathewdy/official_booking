@@ -4,37 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../output.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Admin</title>
 </head>
-<body class="bg-gray-500">
-    <div class="container mx-auto p-2">
-        <div class="max-w-sm  my-24 mx-auto bg-white px-5 py-10 rounded shadow-xl">
-            <div class="text-center mb-8">
-                <h1 class="font-bold text-2xl">Login</h1>
-            
+<br>
+<br>
+<body style="background: #222831;"> 
+    <div class="container">
+
+        <form action="" method="POST">
+            <div class="row">
+                
+                <div class="row col-6">
+                    
+                    <div class="col">
+                        <h2>
+                            <div class="col-lg-6" style="color:white;">Let's go and book today!</div>
+                        </h2>
+                    </div>
+                </div>
             </div>
-            <form action="#" method="POST">
-                <div class="mt-5">
-                    <label class="text-lg">Admin Username</label>
-                    <input type="text" name="admin" class="block w-full p-2 border rounded border-gray-500" >
 
+            <div class="row col-6">
+                <div class="col">
+                    <input type="text" name="admin" class="form-control" placeholder="Username">
                 </div>
+        
+            </div>
+        </form>
+       
 
-                <div class="mt-5">
-                    <label class="text-lg">Password</label>
-                    <input type="password" name="password" class="block w-full p-2 border rounded border-gray-500">
-
-                </div>
-
-                <div class="mt-10">
-                    <input type="submit" name="login" value="login" class="py-3 bg-green-500 text-white w-full">
-                </div>
-            </form>
-        </div>
     </div>
 
-    <?php
+  
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<?php
     session_start();
     include('../connection.php');
 
@@ -68,6 +76,4 @@
 
 
     }
-    ?>
-</body>
-</html>
+?>
