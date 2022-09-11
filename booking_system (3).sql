@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2022 at 01:33 AM
+-- Generation Time: Sep 11, 2022 at 11:45 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -42,6 +42,7 @@ CREATE TABLE `admin` (
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
   `user_id` varchar(50) NOT NULL,
+  `destination_from` varchar(50) NOT NULL,
   `destination_to` varchar(50) NOT NULL,
   `departure_date` date NOT NULL,
   `return_date` date NOT NULL,
@@ -77,8 +78,27 @@ CREATE TABLE `guests` (
 CREATE TABLE `promos` (
   `id` int(11) NOT NULL,
   `place` varchar(50) NOT NULL,
+  `amenities` varchar(250) NOT NULL,
   `inclusions` varchar(250) NOT NULL,
-  `price` varchar(50) NOT NULL
+  `exclusions` varchar(250) NOT NULL,
+  `days` varchar(50) NOT NULL,
+  `price` varchar(50) NOT NULL,
+  `date_time_created` datetime NOT NULL,
+  `date_time_updated` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reset_passwords`
+--
+
+CREATE TABLE `reset_passwords` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `code` varchar(50) NOT NULL,
+  `date_time_created` datetime NOT NULL,
+  `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -131,6 +151,13 @@ ALTER TABLE `promos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reset_passwords`
+--
+ALTER TABLE `reset_passwords`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -160,6 +187,12 @@ ALTER TABLE `promos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `reset_passwords`
+--
+ALTER TABLE `reset_passwords`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -180,6 +213,12 @@ ALTER TABLE `books`
 --
 ALTER TABLE `guests`
   ADD CONSTRAINT `guests_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `reset_passwords`
+--
+ALTER TABLE `reset_passwords`
+  ADD CONSTRAINT `reset_passwords_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
