@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2022 at 01:33 AM
+-- Generation Time: Sep 11, 2022 at 11:39 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -42,6 +42,7 @@ CREATE TABLE `admin` (
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
   `user_id` varchar(50) NOT NULL,
+  `destination_from` varchar(50) NOT NULL,
   `destination_to` varchar(50) NOT NULL,
   `departure_date` date NOT NULL,
   `return_date` date NOT NULL,
@@ -77,7 +78,10 @@ CREATE TABLE `guests` (
 CREATE TABLE `promos` (
   `id` int(11) NOT NULL,
   `place` varchar(50) NOT NULL,
+  `amenities` varchar(250) NOT NULL,
   `inclusions` varchar(250) NOT NULL,
+  `exclusions` varchar(250) NOT NULL,
+  `days` varchar(50) NOT NULL,
   `price` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
