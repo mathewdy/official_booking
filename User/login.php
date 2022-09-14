@@ -35,6 +35,7 @@ if(isset($_POST['submit'])){
     if (mysqli_num_rows($result)>0){
         while($row=mysqli_fetch_assoc($result)){
             if (password_verify($password, $row['password'])){ 
+                //fetch mo muna yung user id, para ma sessidon papunta sa kabila
                 $_SESSION['email'] = $email;
                 header("location: index.php");
                  die();
