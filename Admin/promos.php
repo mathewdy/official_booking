@@ -21,8 +21,16 @@ if(isset($_SESSION['admin'])){
         <input type="file" name="places">
         <input type="text" name="name_of_place">
         <br>
+        <label>Amenities</label>
+        <input type="text" name="amenities">
+        <br>
         <label>Inclusions</label>
         <input type="text" id="inclusions" name="inclusions">
+        <br>
+        <label>Exclusions</label>
+        <input type="text" name="exlusions">
+        <label>Days</label>
+        <input type="text" name="days">
         <label>Price</label>
         <input type="text" name="price">
         <br>
@@ -48,7 +56,10 @@ if(isset($_SESSION['admin'])){
     $fileType = $_FILES['places']['type'];
 
     $place = $_POST['name_of_place'];
+    $amenities = $_POST['amenities'];
     $inlcusion = $_POST['inclusions'];
+    $exlcusions = $_POST['exclusions'];
+    $days = $_POST['days'];
     $price = $_POST['price'];
 
     $fileExt = explode('.',$fileName);
@@ -66,7 +77,7 @@ if(isset($_SESSION['admin'])){
                 $fileDestination = 'uploads/'.$fileNameNew;
                 move_uploaded_file($fileTmpName,$fileDestination);
 
-                $sql = "INSERT INTO promos(place,name_place, inclusion, price) VALUES('$fileNameNew' ,'$place','$inlcusion','$price')";
+                $sql = "INSERT INTO promos(place,name_place,amenities, inclusion, exclusions, days, price) VALUES('$fileNameNew' ,'$place','$amenities','$inlcusion', '$exlcusions','$days','$price')";
                 mysqli_query($conn, $sql);
                 header("location:promos.php?uploadsuccess");
 
