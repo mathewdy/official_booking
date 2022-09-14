@@ -11,6 +11,8 @@ if(empty($_SESSION['email'])){
 
 print_r($email);
 
+
+
 ?>
 
 
@@ -27,10 +29,10 @@ print_r($email);
 <form action="change-pass.php" method="POST">
 
 <label for=""> New-Password </label>
-<input type="text" name="password">
+<input type="password" name="password" >
 
 <label for="">re-type New-Password </label>
-<input type="text" name="new-password">
+<input type="password" name="new-password"  >
 
 <input type="submit" name="submit" value="Changepass">
 
@@ -47,25 +49,53 @@ if(isset($_POST['submit'])){
     $dateUpdated = date("Y-m-d h:i:a");
     $new_password = password_hash($pass,PASSWORD_DEFAULT);
 
-    if($pass == $new_pass){
-        //hashing 
-        
 
-        $pass_update = "UPDATE `users` SET `password`='$new_password',`date_time_updated`='$dateUpdated' WHERE email = '$email'";
-        $run_update = mysqli_query($conn, $pass_update);
+    // checking 
 
-        if($run_update){
-            session_destroy();
-            unset($_SESSION['email']);
-            echo "<script>window.location.href='login.php'</script>";
-        }
+    if(empty($pass)){
 
-        else{
-
-            $conn->error;
-        }
+        echo "<script>alert('Please put a password')</script>";
 
     }
+
+    elseif(empty($new_pass)){
+
+        echo "<script>alert('Please put a password')</script>";
+
+    }
+
+    else{
+
+        if($pass == $new_pass){
+            //hashing 
+            
+    
+            $pass_update = "UPDATE `users` SET `password`='$new_password',`date_time_updated`='$dateUpdated' WHERE email = '$email'";
+            $run_update = mysqli_query($conn, $pass_update);
+    
+            if($run_update){
+                session_destroy();
+                unset($_SESSION['email']);
+                echo "<script>window.location.href='login.php'</script>";
+                exit();
+            }
+
+    
+            else{
+    
+                echo "<script>Password is not match</script>";
+    
+            }
+    
+        }
+
+
+
+    }
+
+
+
+   
 
 }
 ?>

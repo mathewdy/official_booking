@@ -29,22 +29,26 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = "SELECT email, password FROM users WHERE email = '$email'";
+    $query = "SELECT email, password, user_id FROM users WHERE email = '$email'";
     $result = mysqli_query($conn,$query);
 
     if (mysqli_num_rows($result)>0){
         while($row=mysqli_fetch_assoc($result)){
             if (password_verify($password, $row['password'])){ 
-                //fetch mo muna yung user id, para ma sessidon papunta sa kabila
-                $_SESSION['email'] = $email;
+                //fetch mo muna yung user id, para ma sessidon papunta sa kabila 
+                 $_SESSION['email'] = $email;
+                 $_SESSION['user_id'] = $row['user_id'];
                 header("location: index.php");
                  die();
 
+                
             } 
             else{
                 echo '<script>alert("Incorrect credentials")</script>' ; 
             }
 
+          
+            
 
 }
 

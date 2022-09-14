@@ -1,11 +1,15 @@
 <?php
 session_start();
 include('../connection.php');
+include('../session.php');
 // tinanggal ko yung session para makapasok ako sa loob
 
-//lagay mo dito yung echo "$user_id = $_SESSION['user_id'];"
-// para ma fetch dito sa database;
+ $user_id = $_SESSION['user_id'];
 date_default_timezone_set('Asia/Manila');
+
+
+
+
 ?>
 
 
