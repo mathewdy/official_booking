@@ -8,9 +8,8 @@ $email = $_SESSION['email'];
 
 
 
-print_r($_SESSION['otp']);
 
-if(empty($_SESSION['otp'])){
+if(empty($email)){
             echo "<script>window.location.href='forgot-pass.php' </script>";
         }
     
@@ -19,9 +18,12 @@ if(empty($_SESSION['otp'])){
         //otp has done 
 
 $timestamp =  $_SERVER["REQUEST_TIME"];  // record the current time stamp 
-if(($timestamp - $_SESSION['time']) > 300)  // 300 refers to 300 seconds
+if(($timestamp - $_SESSION['time']) > 60)  // 300 refers to 300 seconds
 {
-    echo "otp expired";
+
+    $update_reset = "UPDATE `reset_passwords` SET `code`= ' ',`date_time_updated`='' WHERE email = '$email' ";
+  $run_update = mysqli_query($conn,$update_reset);
+echo '<script>alert("Incorrect credentials")</script>' ; 
 
     // delete the otp in the database and alert the person that the otp is expired
 }
@@ -89,6 +91,10 @@ if(($timestamp - $_SESSION['time']) > 300)  // 300 refers to 300 seconds
 <input type = number name = "otp">
 <input type = "submit" name = "submit" value = "Submit">
 
+<a href="resend.php">Re-send the otp</a>
+
+
+
 
 </form>
 
@@ -113,7 +119,6 @@ if(isset($_POST['submit'])){
     if (mysqli_num_rows($result)>0){
         while($row=mysqli_fetch_assoc($result)){
             if (password_verify($otp, $row['code'])){ 
-                //fetch mo muna yung user id, para ma sessidon papunta sa kabila
                 unset($_SESSION['otp']);
                 header("location: change-pass.php");
                  die();
