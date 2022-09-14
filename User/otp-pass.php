@@ -23,7 +23,7 @@ if(($timestamp - $_SESSION['time']) > 60)  // 300 refers to 300 seconds
 
     $update_reset = "UPDATE `reset_passwords` SET `code`= ' ',`date_time_updated`='' WHERE email = '$email' ";
   $run_update = mysqli_query($conn,$update_reset);
-echo '<script>alert("Incorrect credentials")</script>' ; 
+echo '<script>alert("Your otp has been expired")</script>' ; 
 
     // delete the otp in the database and alert the person that the otp is expired
 }
@@ -44,29 +44,8 @@ echo '<script>alert("Incorrect credentials")</script>' ;
 
 
 
-// $timestamps =  $_SERVER["REQUEST_TIME"];  // record the current time stamp 
-// print_r($timestamps );
 
 
-// print_r( $_SESSION['time']);
-
-
-
-//     
-   
-//     if(($_SESSION['time'] - $timestamps) < 60){
-
-
-//         $update_reset = "UPDATE `reset_passwords` SET `code`='0',`date_time_updated`='' WHERE = '$_SESSION[email]' ";
-//        $run_update = mysqli_query($conn,$update_reset);
-
-
-//     }
-//     else{
-//         echo "<script>alert('Your OTP has been expired')</script>";
-        
-
-//     }
 
     
 
