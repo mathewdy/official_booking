@@ -1,10 +1,16 @@
 <?php
 session_start();
+$user_id = $_SESSION['user_id'];
+
+
 include('../connection.php');
 include('../session.php');
-// tinanggal ko yung session para makapasok ako sa loob
 
- $user_id = $_SESSION['user_id'];
+
+
+ 
+
+ 
 date_default_timezone_set('Asia/Manila');
 
 
@@ -51,6 +57,7 @@ date_default_timezone_set('Asia/Manila');
         <label for="">How many person</label>
 
             <select name="pax">
+            <option value="0">Specify the pax</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -72,14 +79,13 @@ date_default_timezone_set('Asia/Manila');
 if(isset($_POST['book'])){
     date_default_timezone_set('Asia/Manila');
 
-    $user_id = "123";
-
     $destination_from = $_POST['destination_from'];
     $destination_to = $_POST['destination_to'];
+    $pax = $_POST['pax'];
 
     //time nya mismo
     //echo "<br> " . "eto yung actual time : ";
-    echo $time = time() ;
+    $time = time();
     //echo "<br>";
     //echo "selected date :";
     $departure_date = $_POST['departure_date'];
@@ -94,18 +100,89 @@ if(isset($_POST['book'])){
     
     $dateCreated = date("Y-m-d h:i:s");
     $dateUpdated = date("Y-m-d h:i:s");
+    $year = date('Y');
+    $rand = rand(9999, 1111);
 
-
-    $query_insert = "INSERT INTO books ('user_id', 'destination_from' ,'destination_to', 'departure_date', 'return_date', 'date_time_created', 'date_time_updated') VALUES ('$user_id', '$destination_from','$destination_to', '$departure_date', '$return_date', '$dateCreated' , '$dateUpdated')";
-    $run_insert = mysqli_query($conn,$query_insert);
-
-    if($run_insert) {
-        echo "added to book";
-    }else{
-        echo "error . " .  $conn->error;
+    If($pax == 0){
+        echo '<script>alert("Please input a Pax")</script>' ;
+    }
+    
+    if(empty($destination_from)){
+        echo '<script>alert("Please input a destination from")</script>' ;
+    }
+    if(empty($destination_to)){
+        echo '<script>alert("Please input a destination to")</script>' ;
     }
 
+   if(empty($departure_date)){
+        echo '<script>alert("Please input a departure date")</script>' ;
+    }
+   
 
+  
+
+   // validating of booking
+
+
+  
+    
+
+
+
+
+// single booking 
+
+    if($pax == 1){
+
+        $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `pax`, `date_time_created`) 
+        VALUES ('$user_id', '$destination_from', '$destination_to', '$departure_date', '$return_date', '$pax' , '$dateCreated')";
+        $run_query_book = mysqli_query($conn,$query_book);
+      
+        if($run_query_book){
+      
+          
+      
+        }
+      
+        else{
+      
+          $conn->error;
+        }
+      
+    }
+
+    // two booking
+
+    else if ($pax == 2 ){
+
+       
+        $user_id_2 = ($year.$rand);
+
+        // validating of userid
+
+    
+
+    }
+
+    else if ($pax == 3 ){
+        $user_id_2 = ($year.$rand);
+        $user_id_3 = ($year.$rand);
+
+        // validating of userid
+
+    }
+
+    else if ($pax == 4 ){
+        $user_id_2 = ($year.$rand);
+        $user_id_3 = ($year.$rand);
+        $user_id_4 = ($year.$rand);
+
+        // validating of userid
+
+
+    }
+
+  
 
 
 
@@ -114,10 +191,7 @@ if(isset($_POST['book'])){
     
 }
 
-//validation here di na sya makakapag book if yung userid is nakapag book na hihe
 
-
-//query of booking
 
 
 
