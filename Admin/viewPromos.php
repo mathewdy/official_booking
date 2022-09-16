@@ -33,12 +33,26 @@
         ?>
         <tr>
             <td>
-                <img src="<?php echo "uploads/".$Row['place']; ?>" width="50px"; height="50px";>
+                <?php echo '<img src="uploads/'.$Row['place'].'" width="100px"; height:"100px;"' ?>
             </td>
-            <td><?php echo $Row['name_place']?></td>
-            <td><?php echo $Row['inclusion']?></td>
+            <td><?php echo $Row['name_of_place']?></td>
+            <td><?php echo $Row['amenities']?></td>
+            <td><?php echo $Row['inclusions']?></td>
+            <td><?php echo $Row['exclusions']?></td>
+            <td><?php echo $Row['days']?></td>
             <td><?php echo $Row['price']?></td>
-
+            <td>
+                <form action="editPromos.php" method="POST">
+                    <input type="hidden" name="edit_id" value="<?php echo $Row['id'];?>">
+                    <button type="submit" name="edit_promos">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form action="deletePromos.php" method="POST">
+                    <input type="hidden" name="delete" value="<?php echo $Row['id'];?>">
+                    <button type="submit" name="delete_promos">Delete</button>
+                </form>
+            </td>
         </tr>
         <?php
         }

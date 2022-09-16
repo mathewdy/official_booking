@@ -31,6 +31,9 @@
                 </div>
         
             </div>
+
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit" name="login" value="login">
         </form>
        
 
@@ -55,7 +58,7 @@
         else{
             $admin = mysqli_real_escape_string($conn, $_POST['admin']);
             $password = mysqli_real_escape_string($conn, $_POST['password']);
-            $login = "SELECT * FROM admin WHERE admin = '$admin'";
+            $login = "SELECT * FROM admin WHERE admin = '$admin' AND password ='$password'" ;
 
             $Sql = mysqli_query($conn, $login);
 
@@ -63,13 +66,14 @@
             {
                 $row = mysqli_fetch_assoc($Sql);
                 $_SESSION['admin'] = $row['admin'];
+                header('location: home.php');
+                
+            }
 
-                if(!password_verify($password, $row['password'])){
-                    echo "incorrect password";
-                }
-                else{
-                    header('location:home.php');
-                }
+            else{
+                // header('location:home.php');
+                echo "error".$Sql."<br>".$conn->error;
+
             }
 
         }
