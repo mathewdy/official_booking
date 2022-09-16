@@ -3,10 +3,9 @@ include('connection.php');
 session_start();
 
 if(session_destroy()){
-unset($_SESSION['email']);
-unset($user_id);
-header("Location: login.php");
+unset($email);
+unset($_SESSION['otp']);
+header("Location: forgot-pass.php");
 exit();
 }
-
 ?>
