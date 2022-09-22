@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2022 at 11:12 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Sep 22, 2022 at 04:54 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -59,6 +59,7 @@ CREATE TABLE `books` (
 CREATE TABLE `guests` (
   `id` int(11) NOT NULL,
   `user_id` varchar(50) NOT NULL,
+  `guest_id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `middle_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
@@ -101,6 +102,13 @@ CREATE TABLE `reset_passwords` (
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `reset_passwords`
+--
+
+INSERT INTO `reset_passwords` (`id`, `email`, `code`, `date_time_created`, `date_time_updated`) VALUES
+(1, 'tite@gmail.com', '', '2022-09-22 10:38:00', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -116,10 +124,18 @@ CREATE TABLE `users` (
   `birthday` date NOT NULL,
   `contact_number` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_id`, `first_name`, `middle_name`, `last_name`, `birthday`, `contact_number`, `email`, `password`, `date_time_created`, `date_time_updated`) VALUES
+(1, '1234', 'mathew', 'francisco', 'dalusay', '2022-09-06', '090156915704', 'mathewdalisay@gmail.com', '123456789', '2022-09-22 16:36:22', '2022-09-22 16:36:22'),
+(2, '20221314', 'mathew', 'f', 'da', '2022-09-19', '644', 'tite@gmail.com', '$2y$10$j.GSXLpoUTRgsR1FEZrcUOdviyZUjrDqk.C4y09eJovx.TXq1S7QK', '2022-09-22 10:38:00', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -191,13 +207,13 @@ ALTER TABLE `promos`
 -- AUTO_INCREMENT for table `reset_passwords`
 --
 ALTER TABLE `reset_passwords`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
