@@ -34,7 +34,7 @@ ob_start();
                                 <input type="text" name="last_name" class="form-control py-2" placeholder="Last Name">
                             </div>
                             <div class="col-lg-12">
-                                <input type="date"  name="date_of_birth" class="form-control py-2">
+                                <input placeholder="Date of birth" class="form-control py-2"  name="date_of_birth" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
                             </div>
                             <div class="col-lg-12">
                                 <!-- lagyan ito ng max input hanggang 10 lang at 0 lagi ang umpisa  -->
