@@ -9,18 +9,43 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/styles/bs-5/bootstrap/dist/css/bootstrap.css">
     <title>Login</title>
 </head>
-<body>
-    <form action="login.php" method="POST">
-        <label for="">Email</label>
-        <input type="email" name="email">
-        <label for="">Password</label>
-        <input type="password" name="password">
-        <input type ="submit" name="submit" value="Login">
-        <a href="registration.php">Sign up</a>
-        <a href="forgot-pass.php">Forgot password</a>
-    </form>
+<body class="bg-dark-accent">
+<div class="container pt-0">
+        <div class="row vh-100 d-flex flex-row justify-content-between align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-1 text-whitesmoke">Let's go and book Today!</h1>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="card bg-bright-dark-accent" style="border: 1px solid #393E46; width: 30rem;">
+                    <div class="card-body bg-bright-dark-accent" style="border:none;">
+                        <form action="login.php" method="POST">
+                            <div class="row p-4 gy-4">
+                                <div class="col-lg-12">
+                                    <input type="email" class="form-control" name="email" placeholder="Email">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="submit" class="btn btn-info-dark py-2 text-white w-100" name="submit" value="Login">
+                                </div>
+                                <div class="col-lg-12 gy-5 text-center">
+                                    <a href="forgot-pass.php" class="h6 link text-whitesmoke w-100">Forgot Password?</a>
+                                    <a href="registration.php" class="btn btn-pink text-white w-100 py-2 mt-2">Create New Account</a>
+                                </div>
+                                <div class="col-lg-12">
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     
 <?php
