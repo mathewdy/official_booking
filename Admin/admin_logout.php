@@ -1,9 +1,12 @@
 <?php
+include('connecntion.php');
 session_start();
-$_SESSION['admin'];
-unset($_SESSION['admin']);
-session_destroy();
+if(session_destroy()){
+    unset($_SESSION['admin']);
+    header("location: index.php");
+    exit();
 
-header("location: index.php");
+}
+
 
 ?>

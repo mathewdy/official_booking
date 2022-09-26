@@ -20,6 +20,7 @@ if(isset($_SESSION['admin'])){
     <a href="admin_logout.php">Logout</a>
     <h2 ><?php echo $_SESSION['admin']?></h2>
     <a href="promos.php">Promo</a>
+    <a href="admin_logout.php">Logout</a>
     
      
     
