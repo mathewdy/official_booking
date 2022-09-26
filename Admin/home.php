@@ -18,16 +18,9 @@ if(isset($_SESSION['admin'])){
 </head>
 <body class="bg-slate-500">
     <a href="admin_logout.php">Logout</a>
-    <h2 class="text-2xl text-center"><?php echo $_SESSION['admin']?></h2>
+    <h2 ><?php echo $_SESSION['admin']?></h2>
     <a href="promos.php">Promo</a>
-    <table class="table-auto border border-1 mx-auto w-2/3 my-24 ">
-        <thead class="bg-gray-300 shadw-md">
-            <tr>
-                <th class="border border-1">Song</th>
-                <th class="border border-1">Artist</th>
-                <th class="border border-1">Year</th>
-            </tr>
-        </thead>
+    
      
     
 </body>
