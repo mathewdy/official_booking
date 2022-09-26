@@ -13,29 +13,50 @@ ob_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/styles/bs-5/bootstrap/dist/css/bootstrap.css">
     <title>Registartion</title>
 </head>
-<body>
-    <form action="registration.php" method="POST">
-
-        <label for="">First Name</label>
-        <input type="text" name="first_name">
-        <label for="">Middle Name</label>
-        <input type="text" name="middle_name">
-        <label for="">Last Name</label>
-        <input type="text" name="last_name">
-        <label for="">Date of Birth</label>
-        <input type="date" name="date_of_birth">
-        <!-- lagyan ito ng max input hanggang 10 lang at 0 lagi ang umpisa  -->
-        <label for="">Contact Number</label>
-        <input type="number" name="contact_number"> 
-        <label for="">Email</label>
-        <input type="email" name="email">
-        <label for="">Password</label>
-        <input type="password" name="password">
-        
-        <input type="submit" name="registartion" value="Register">
-    </form>
+<body class="bg-dark-accent">
+<div class="container">
+        <div class="row gy-4 d-flex justify-content-center align-items-center vh-100">
+            <div class="col-lg-5 col-sm-12 ">
+                <div class="card bg-bright-dark-accent" style="border:none; border-radius: 30px;">
+                    <form action="registration.php" class="bg-bright-dark-accent px-4 py-2"  style="border:none; border-radius: 25px;" method="POST">
+                        <div class="row g-4 p-2" style="border:none;">
+                            <div class="col-lg-12">
+                                <h2 class="display-6 text-white pb-2" style="font-size: 2em; font-weight: 300; ">Sign Up</h2>
+                                <input type="text" name="first_name"  class="form-control py-2" placeholder="First Name">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" name="middle_name" class="form-control py-2" placeholder="Middle Name">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" name="last_name" class="form-control py-2" placeholder="Last Name">
+                            </div>
+                            <div class="col-lg-12">
+                                <input placeholder="Date of birth" class="form-control py-2"  name="date_of_birth" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                            </div>
+                            <div class="col-lg-12">
+                                <!-- lagyan ito ng max input hanggang 10 lang at 0 lagi ang umpisa  -->
+                                <input type="number" name="contact_number" class="form-control py-2" placeholder="Contact Number"> 
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="email"  name="email" class="form-control py-2" placeholder="Email">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="password"  name="password" class="form-control py-2" placeholder="Password">
+                            </div>
+                            <div class="col-lg-12 text-center d-flex flex-column align-items-center">
+                                <input type="submit" class="btn btn-pink text-white text-center w-50 py-2 mb-2" name="registartion" value="Register">
+                                <a href="login.php" class="h6 link text-whitesmoke w-100 mb-2">Already have an account?</a>
+                            </div>
+                        </div>
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 

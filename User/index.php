@@ -57,7 +57,7 @@ date_default_timezone_set('Asia/Manila');
         <label for="">How many person</label>
 
             <select name="pax">
-            <option value="0">Specify the pax</option>
+            <option value="0">-Select-</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -139,8 +139,8 @@ if(isset($_POST['book'])){
         $run_query_book = mysqli_query($conn,$query_book);
       
         if($run_query_book){
-      
-          
+            
+          $user_id = $_SESSION['user_id'];
       
         }
       
