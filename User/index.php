@@ -54,7 +54,6 @@ date_default_timezone_set('Asia/Manila');
     </thead>
     <tbody>
     <?php
-        include('../connection.php');
 
         $sql = "SELECT * FROM promos ORDER BY id DESC ";
         $run = mysqli_query($conn,$sql);
@@ -63,6 +62,7 @@ date_default_timezone_set('Asia/Manila');
             $count = 0;
             foreach($run as $row){
               $pid = $row['id'];
+              
             // Store the cipher method
             $ciphering = "AES-128-CTR";
             $iv_length = openssl_cipher_iv_length($ciphering);
@@ -87,6 +87,7 @@ date_default_timezone_set('Asia/Manila');
             <td>
                 <?php echo '<img src="uploads/'.$row['place'].'" width="100px"; height:"100px;"' ?>
             </td>
+            <td><?php echo $count;?></td>
             <td><?php echo $row['name_of_place']?></td>
             <td><?php echo $row['amenities']?></td>
             <td><?php echo $row['inclusions']?></td>
@@ -115,120 +116,6 @@ date_default_timezone_set('Asia/Manila');
 
 <?php
 
-if(isset($_POST['book'])){
-    date_default_timezone_set('Asia/Manila');
-
-    $destination_from = $_POST['destination_from'];
-    $destination_to = $_POST['destination_to'];
-    $pax = $_POST['pax'];
-
-    //time nya mismo
-    //echo "<br> " . "eto yung actual time : ";
-    $time = time();
-    //echo "<br>";
-    //echo "selected date :";
-    $departure_date = $_POST['departure_date'];
-    //echo $departure_date;
-    //echo "<br>";
-    //echo "date in 3 days :";
-    //date in 3 days
-
-    $time_3 = $time + 60  * 60 * 24 * 3;
-    $return_date = date("Y-m-d H:i:s", $time_3);
-
-    
-    $dateCreated = date("Y-m-d h:i:s");
-    $dateUpdated = date("Y-m-d h:i:s");
-    $year = date('Y');
-    $rand = rand(9999, 1111);
-
-    If($pax == 0){
-        echo '<script>alert("Please input a Pax")</script>' ;
-    }
-    
-    if(empty($destination_from)){
-        echo '<script>alert("Please input a destination from")</script>' ;
-    }
-    if(empty($destination_to)){
-        echo '<script>alert("Please input a destination to")</script>' ;
-    }
-
-   if(empty($departure_date)){
-        echo '<script>alert("Please input a departure date")</script>' ;
-    }
-   
-
-  
-
-   // validating of booking
-
-
-  
-    
-
-
-
-
-// single booking 
-
-    if($pax == 1){
-
-        $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `pax`, `date_time_created`) 
-        VALUES ('$user_id', '$destination_from', '$destination_to', '$departure_date', '$return_date', '$pax' , '$dateCreated')";
-        $run_query_book = mysqli_query($conn,$query_book);
-      
-        if($run_query_book){
-            
-          $user_id = $_SESSION['user_id'];
-      
-        }
-      
-        else{
-      
-          $conn->error;
-        }
-      
-    }
-
-    // two booking
-
-    else if ($pax == 2 ){
-
-       
-        $user_id_2 = ($year.$rand);
-
-        // validating of userid
-
-    
-
-    }
-
-    else if ($pax == 3 ){
-        $user_id_2 = ($year.$rand);
-        $user_id_3 = ($year.$rand);
-
-        // validating of userid
-
-    }
-
-    else if ($pax == 4 ){
-        $user_id_2 = ($year.$rand);
-        $user_id_3 = ($year.$rand);
-        $user_id_4 = ($year.$rand);
-
-        // validating of userid
-
-
-    }
-
-  
-
-
-
-
-
-    
-}
 
 
 
