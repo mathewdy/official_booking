@@ -54,13 +54,13 @@ if(isset($_POST['submit'])){
 
     if(empty($pass)){
 
-        echo "<script>alert('Please put a password')</script>";
+        echo "<script>alert('Please put  password')</script>";
 
     }
 
     elseif(empty($new_pass)){
 
-        echo "<script>alert('Please put a password')</script>";
+        echo "<script>alert('Please put second password')</script>";
 
     }
 

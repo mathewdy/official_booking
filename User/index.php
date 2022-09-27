@@ -31,45 +31,84 @@ date_default_timezone_set('Asia/Manila');
 
 
 
-    <h1> DESIGN </h1>
+    <h1> Home </h1>
 
     <a href="logout.php">Logout</a>
 
 
+    <table>
+  
+    <thead>
+        <tr>
+        <th>Place</th>
+        <th>Name of place</th>
+        <th>Amenities</th>
+        <th>Inclusions</th>
+        <th>Exclusions</th>
+        <th>Days</th>
+        <th>Price</th>
+        <th>Actions</th>
 
-    <!-- KAILANGAN NAKA MODAL TO PARA SA BOOKING  -->
+        </tr>
+       
+    </thead>
+    <tbody>
+    <?php
+        include('../connection.php');
 
-<!--  PARA SA MGA GUEST  -->
+        $sql = "SELECT * FROM promos ORDER BY id DESC ";
+        $run = mysqli_query($conn,$sql);
 
-    <!-- PARA SA MGA MAY EMAIL NA -->
-    <form action="index.php" method = "POST"> 
+         if(mysqli_num_rows($run) > 0){
+            $count = 0;
+            foreach($run as $row){
+              $pid = $row['id'];
+            // Store the cipher method
+            $ciphering = "AES-128-CTR";
+            $iv_length = openssl_cipher_iv_length($ciphering);
+            $options = 0;
 
-        <label for="">Destination From:</label>
-        <input type="text" name="destination_from">
-        <label for="">Destination To:</label>
-        <input type="text" name="destination_to">
-        <label for="">Departure Date</label>
-        <input type="date" name="departure_date">
-        
+            // Non-NULL Initialization Vector for encryption
+            $encryption_iv = '1234567891011121';
+
+            // Store the encryption key
+            $encryption_key = "TeamAgnat";
+
+            // Use openssl_encrypt() function to encrypt the data
+            $encryption = openssl_encrypt($pid, $ciphering,
+                        $encryption_key, $options, $encryption_iv);
+            //   $encrypted_data = (($lrn*12345678911*56789)/987654);
+              $book_link = "book.php?pid=" . $encryption;
+                $count++;
+
+   
+        ?>
+        <tr>
+            <td>
+                <?php echo '<img src="uploads/'.$row['place'].'" width="100px"; height:"100px;"' ?>
+            </td>
+            <td><?php echo $row['name_of_place']?></td>
+            <td><?php echo $row['amenities']?></td>
+            <td><?php echo $row['inclusions']?></td>
+            <td><?php echo $row['exclusions']?></td>
+            <td><?php echo $row['days']?></td>
+            <td><?php echo $row['price']?></td>
+            <td>
+            <a href="<?php echo $book_link ?>"> Book</a>
+            </td>
+        </tr>
+        <?php
+            }
+        }
+        ?>
+
+    </tbody>
 
 
-        <!----dapat eto mapupunta yung data neto sa guest--->
-        <label for="">How many person</label>
-
-            <select name="pax">
-            <option value="0">-Select-</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
+    </table>
+   
 
 
-
-
-        <input type="submit" name="book" value="Book">
-
-    </form> 
 
 </body>
 </html>
