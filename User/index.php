@@ -87,7 +87,7 @@ date_default_timezone_set('Asia/Manila');
             <td>
                 <?php echo '<img src="uploads/'.$row['place'].'" width="100px"; height:"100px;"' ?>
             </td>
-            <td><?php echo $count;?></td>
+           
             <td><?php echo $row['name_of_place']?></td>
             <td><?php echo $row['amenities']?></td>
             <td><?php echo $row['inclusions']?></td>

@@ -143,30 +143,24 @@ if(isset($_POST['book'])){
 
 
 
+
+
  // validating of booking
  $validation_book = "SELECT `departure_date` FROM `books` WHERE departure_date = '$departure_date' AND  user_id = '$user_id'";
  $validate = mysqli_query($conn,$validation_book);
-
- if(mysqli_num_rows($validate) > 0){
-  echo "<script>alert('already book')</script>";
-  // echo "<script>window.location.href='login.php' </script>";
-
-    }
-
-// other method 
-// if(mysqli_num_rows($validate) > 0  ){
-//   while($row=mysqli_fetch_assoc($validate)){
+ 
+if(mysqli_num_rows($validate) > 0  ){
+  while($row=mysqli_fetch_assoc($validate)){
   
-//       if ($row['departure_date'] == $departure_date ){
-//         echo '<script>alert("Please input a departure date")</script>' ;
-//       }
-//    }
-//   }
-
-
+      if ($row['departure_date'] == $departure_date ){
+        echo '<script>alert("Already book")</script>' ;
+      }
+   }
+  }
   else{
 
-
+    // query of single booking
+   
 // single booking 
 
 if($pax == 1){
@@ -174,6 +168,8 @@ if($pax == 1){
   $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `date_time_created`) 
   VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date', '$dateCreated')";
   $run_query_book = mysqli_query($conn,$query_book);
+
+  
 
   if($run_query_book){
       
@@ -192,45 +188,11 @@ if($pax == 1){
 
 else if ($pax == 2 ){
 
- 
-  $user_id_2 = ($year.$rand);
+  $guest_id = ($year.$rand);
+  header("location: book-phase_2.php");
 
-  // validating of userid
-
-
-
+        
 }
-
-else if ($pax == 3 ){
-  $user_id_2 = ($year.$rand);
-  $user_id_3 = ($year.$rand);
-
-  // validating of userid
-
-}
-
-else if ($pax == 4 ){
-  $user_id_2 = ($year.$rand);
-  $user_id_3 = ($year.$rand);
-  $user_id_4 = ($year.$rand);
-
-  // validating of userid
-
-
-}
-
-
-  }
-
-
-
-  
-
-
-
-
-
-
 
 
 
@@ -238,6 +200,8 @@ else if ($pax == 4 ){
 
 
   
+}
 }
 
 ?>
+
