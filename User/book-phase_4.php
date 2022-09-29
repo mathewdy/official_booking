@@ -18,6 +18,7 @@ date_default_timezone_set('Asia/Manila');
 
 
             <form action="" method="POST">
+
             <h3> Please fill up the form for Guest 1 </h3>
             <label for="">First name</label>
             <input type="text" name="phase_2_fname">
@@ -57,16 +58,37 @@ date_default_timezone_set('Asia/Manila');
             <label for="">Email</label>
             <input type="email" name="phase_3_email">
             <br>
-            <input type="submit" name="phase3_submit" value="Submit">
+
+            <h3> Please fill up the form for Guest 3 </h3>
+            <label for="">First name</label>
+            <input type="text" name="phase_4_fname">
+            <br>
+            <label for="">Middle name</label>
+            <input type="text" name="phase_4_mname" >
+            <br>
+            <label for="">last name</label>
+            <input type="text" name="phase_4_lname">
+            <br>
+            <label for="">Birthday</label>
+            <input type="date" name="phase_4_bday">
+            <br>
+            <label for="">Contact Number</label>
+            <input type="number" name="phase_4_cnum">
+            <br>
+            <label for="">Email</label>
+            <input type="email" name="phase_4_email">
+            <br>
+
+            <input type="submit" name="phase4_submit" value="Submit">
             </form>
 </body>
 </html>
 
     
 <?php
-if(isset($_POST['phase3_submit'])){
+if(isset($_POST['phase4_submit'])){
 
-    //guest 2 
+    //guest 1
 
     $phase_2_fname = $_POST['phase_2_fname'];
     $phase_2_mname = $_POST['phase_2_mname'];
@@ -75,7 +97,7 @@ if(isset($_POST['phase3_submit'])){
     $phase_2_cnum = $_POST['phase_2_cnum'];
     $phase_2_email = $_POST['phase_2_email'];
 
-    // guest 3 
+    // guest 2 
 
     $phase_3_fname = $_POST['phase_3_fname'];
     $phase_3_mname = $_POST['phase_3_mname'];
@@ -83,6 +105,16 @@ if(isset($_POST['phase3_submit'])){
     $phase_3_bday = $_POST['phase_3_bday'];
     $phase_3_cnum = $_POST['phase_3_cnum'];
     $phase_3_email = $_POST['phase_3_email'];
+
+
+    //guest 3 
+
+    $phase_4_fname = $_POST['phase_4_fname'];
+    $phase_4_mname = $_POST['phase_4_mname'];
+    $phase_4_lname = $_POST['phase_4_lname'];
+    $phase_4_bday = $_POST['phase_4_bday'];
+    $phase_4_cnum = $_POST['phase_4_cnum'];
+    $phase_4_email = $_POST['phase_4_email'];
 
     $dateCreated = date("Y-m-d h:i:s");
     $dateUpdated = date("Y-m-d h:i:s");
@@ -98,13 +130,23 @@ if(isset($_POST['phase3_submit'])){
 
      $guest_id_2++;
 
+
+     $guest_id_3 = ($year.$rand);
+
+     $guest_id_3 +=2;
+
     // validation of guest id_1
     $validation_guest_id_1 = "SELECT `guest_id` FROM `guests` WHERE guest_id = '$guest_id'";
     $run_validation_guest_id_1 = mysqli_query($conn,$validation_guest_id_1);
 
     //validation of guest id_2
-    $validation_guest_id_2 = "SELECT `guest_id` FROM `guests` WHERE guest_id = '$guest_id'";
+    $validation_guest_id_2 = "SELECT `guest_id` FROM `guests` WHERE guest_id = '$guest_id_2'";
     $run_validation_guest_id_2 = mysqli_query($conn,$validation_guest_id_2);
+
+
+    //validation of guest id_3
+    $validation_guest_id_3 = "SELECT `guest_id` FROM `guests` WHERE guest_id = '$guest_id_3'";
+    $run_validation_guest_id_3 = mysqli_query($conn,$validation_guest_id_3);
 
 
     if(mysqli_num_rows($run_validation_guest_id_1) > 0){
@@ -116,9 +158,15 @@ if(isset($_POST['phase3_submit'])){
 
     }
 
-    elseif(mysqli_num_rows($run_validation_guest_id_2) > 0){
+    if(mysqli_num_rows($run_validation_guest_id_2) > 0){
           //generate another user id
           $guest_id_2 = ($year.$rand);
+
+    }
+
+    if(mysqli_num_rows($run_validation_guest_id_3) > 0){
+        //generate another user id
+        $guest_id_3 = ($year.$rand);
 
     }
 
@@ -133,6 +181,12 @@ if(isset($_POST['phase3_submit'])){
         $validation_reg_guest_2 = "SELECT  `first_name`, `middle_name`, `last_name`, `email` FROM 
         `guests` WHERE email = '$phase_3_email' ";
         $validate_guest_2 = mysqli_query($conn,$validation_reg_guest_2);
+
+
+        //validation of guest 3 
+        $validation_reg_guest_3 = "SELECT  `first_name`, `middle_name`, `last_name`, `email` FROM 
+        `guests` WHERE email = '$phase_4_email' ";
+        $validate_guest_3 = mysqli_query($conn,$validation_reg_guest_3);
     
             //validation of guest 1
         if(mysqli_num_rows($validate_guest_1) > 0){
@@ -142,9 +196,13 @@ if(isset($_POST['phase3_submit'])){
         }
 
         
-            //validation of guest 1 
+            //validation of guest 2 
         else if(mysqli_num_rows($validate_guest_2) > 0){
             echo "<script>alert('The email has already taken in guest 2 ')</script>";
+        }
+            //validation of guest 3 
+        else if(mysqli_num_rows($validate_guest_3) > 0){
+            echo "<script>alert('The email has already taken in guest 3 ')</script>";
         }
 
 
@@ -158,10 +216,15 @@ if(isset($_POST['phase3_submit'])){
             VALUES ('$user_id','$guest_id_2','$phase_3_fname' , '$phase_3_mname','$phase_3_lname ','$phase_3_bday','$phase_3_cnum','$phase_3_email','$dateCreated')";
 
             $run_guest_query_2 = mysqli_query($conn,$guest_query_2);
+
+            $guest_query_3 = "INSERT INTO `guests`(`user_id`, `guest_id`, `first_name`, `middle_name`, `last_name`, `birthday`, `contact_number`, `email`, `date_time_created`) 
+            VALUES ('$user_id','$guest_id_3','$phase_4_fname' , '$phase_4_mname','$phase_4_lname ','$phase_4_bday','$phase_4_cnum','$phase_4_email','$dateCreated')";
+
+            $run_guest_query_3 = mysqli_query($conn,$guest_query_3);
         
         
         
-            if($run_guest_query_1 && $run_guest_query_2){
+            if($run_guest_query_1 && $run_guest_query_2 && $guest_query_3  ){
                       
             echo "<script>alert('Successful booking')</script>";
             echo"<script>window.location.href='payment.php' </script>";

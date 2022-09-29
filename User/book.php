@@ -188,10 +188,91 @@ if($pax == 1){
 
 else if ($pax == 2 ){
 
-  $guest_id = ($year.$rand);
-  header("location: book-phase_2.php");
 
+  $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `date_time_created`) 
+  VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date', '$dateCreated')";
+  $run_query_book = mysqli_query($conn,$query_book);
+
+  
+
+  if($run_query_book){
+
+   
+
+    header("location: book-phase_2.php");    
+    
+
+  }
+
+  else{
+
+    $conn->error;
+  }
+
+  
+ 
         
+}
+
+
+else if($pax == 3){
+  $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `date_time_created`) 
+  VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date', '$dateCreated')";
+  $run_query_book = mysqli_query($conn,$query_book);
+
+  
+
+  if($run_query_book){
+
+    
+
+    header("location: book-phase_3.php");    
+    
+
+  }
+
+  else{
+
+    $conn->error;
+  }
+
+
+
+
+
+
+
+
+}
+
+else if($pax == 4){
+
+  $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `date_time_created`) 
+  VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date', '$dateCreated')";
+  $run_query_book = mysqli_query($conn,$query_book);
+
+  
+
+  if($run_query_book){
+
+    
+
+    header("location: book-phase_4.php");    
+    
+
+  }
+
+  else{
+
+    $conn->error;
+  }
+
+
+
+
+
+
+
 }
 
 
