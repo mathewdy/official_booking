@@ -163,7 +163,7 @@ if(isset($_POST['phase3_submit'])){
         
             if($run_guest_query_1 && $run_guest_query_2){
                       
-            echo "<script>alert('Successful booking')</script>";
+            echo "<script>alert('Sucessful register')</script>";
             echo"<script>window.location.href='payment.php' </script>";
 
             //landing page for paypal

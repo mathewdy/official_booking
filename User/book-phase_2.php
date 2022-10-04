@@ -99,7 +99,7 @@ if(isset($_POST['phase2_submit'])){
         
             if($run_guest_query_1){
                       
-            echo "<script>alert('Successful booking')</script>";
+            echo "<script>alert('Sucessful register')</script>";
             echo"<script>window.location.href='payment.php' </script>";
         
           }

@@ -24,7 +24,7 @@ if(isset($_GET['pid'])){
   //   $decrypted_lrn = ((($decrypt_lrn*987654)/56789)/12345678911);
   // }
     
-    if(empty($_GET['pid'])){    //lrn verification starts here
+    if(empty($_GET['pid'])){    // place verification starts here
         echo "<script>alert('LRN not found');
         window.location = 'home.php';</script>";
         exit();
@@ -39,6 +39,8 @@ if(isset($_GET['pid'])){
           while($row=mysqli_fetch_assoc($run_gen_place)){
           
             $place = $row['name_of_place'];
+
+           
           
           }
       }
@@ -83,7 +85,7 @@ if(isset($_GET['pid'])){
         <label for="">Destination From:</label>
         <input type="text" name="destination_from">
         <label for="">Destination To:</label>
-        <input type="text"  value="<?php echo"$place"; ?>" readonly>
+        <input type="text"  value="<?php if($place == $place) { echo "$place"; } else {"";} ?>" readonly>
         <label for="">Departure Date</label>
         <input type="date" name="departure_date">
 
@@ -124,8 +126,7 @@ if(isset($_POST['book'])){
   
   $dateCreated = date("Y-m-d h:i:s");
   $dateUpdated = date("Y-m-d h:i:s");
-  $year = date('Y');
-  $rand = rand(9999, 1111);
+ 
 
   If($pax == 0){
       echo '<script>alert("Please input a Pax")</script>' ;
@@ -163,24 +164,24 @@ if(mysqli_num_rows($validate) > 0  ){
    
 // single booking 
 
+
+// tanggalin ang query na booking kasi hindi pa yan dito papasok sa payment na sya ilagay
+
+// gawin ito the rest in the pax  
+
+// pwedeng session nalang ang pax para mas madali 
+
 if($pax == 1){
 
-  $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `date_time_created`) 
-  VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date', '$dateCreated')";
-  $run_query_book = mysqli_query($conn,$query_book);
-
-  
-
-  if($run_query_book){
+  $_SESSION['destination_from'] = $destination_from;
+  $_SESSION['pax '] = $pax ;
+  $_SESSION['departure_date'] = $departure_date;
+  $_SESSION['return_date'] = $return_date;
+  $_SESSION['place'] = $place;
       
     echo "<script>alert('Successful booking')</script>";
+    header("location: payment.php");
 
-  }
-
-  else{
-
-    $conn->error;
-  }
 
 }
 
@@ -188,89 +189,42 @@ if($pax == 1){
 
 else if ($pax == 2 ){
 
+  $_SESSION['destination_from'] = $destination_from;
+  $_SESSION['pax '] = $pax ;
+  $_SESSION['departure_date'] = $departure_date;
+  $_SESSION['return_date'] = $return_date;
+  $_SESSION['place'] = $place;
 
-  $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `date_time_created`) 
-  VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date', '$dateCreated')";
-  $run_query_book = mysqli_query($conn,$query_book);
+ header("location: book-phase_2.php");    
 
-  
-
-  if($run_query_book){
-
-   
-
-    header("location: book-phase_2.php");    
-    
-
-  }
-
-  else{
-
-    $conn->error;
-  }
-
-  
- 
         
 }
 
 
 else if($pax == 3){
-  $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `date_time_created`) 
-  VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date', '$dateCreated')";
-  $run_query_book = mysqli_query($conn,$query_book);
 
-  
-
-  if($run_query_book){
-
-    
+  $_SESSION['destination_from'] = $destination_from;
+  $_SESSION['pax '] = $pax ;
+  $_SESSION['departure_date'] = $departure_date;
+  $_SESSION['return_date'] = $return_date;
+  $_SESSION['place'] = $place;
 
     header("location: book-phase_3.php");    
     
-
-  }
-
-  else{
-
-    $conn->error;
-  }
-
-
-
-
-
-
-
 
 }
 
 else if($pax == 4){
 
-  $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `date_time_created`) 
-  VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date', '$dateCreated')";
-  $run_query_book = mysqli_query($conn,$query_book);
+  $_SESSION['destination_from'] = $destination_from;
+  $_SESSION['pax '] = $pax ;
+  $_SESSION['departure_date'] = $departure_date;
+  $_SESSION['return_date'] = $return_date;
+  $_SESSION['place'] = $place;
 
-  
-
-  if($run_query_book){
-
-    
 
     header("location: book-phase_4.php");    
     
-
-  }
-
-  else{
-
-    $conn->error;
-  }
-
-
-
-
-
 
 
 }
