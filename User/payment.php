@@ -57,7 +57,7 @@ if(mysqli_num_rows($run_query)> 0){
         <label for="">Price</label>
         <input type="text" name="return_date" value=" <?php echo "$total" ?>"readonly>
 
-        <input type="submit" name="book" value="Book">
+        
 
     </form>
 
@@ -65,9 +65,37 @@ if(mysqli_num_rows($run_query)> 0){
 <div id="paypal-button-container"></div>
     
 
-<script src="https://www.paypal.com/sdk/js?client-id=AQXfZKGVELgJp5xNfCfDZAWZLrd_Ikf79I2M9Nt9Iqw5oTX7xyVnOBGp6oHsZbLQxFx2BymiPmWnAkvU"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=ATqOIxEwRpQm2Y8LSuy_1G59KrOuDgZVIqGdMbmjviN7RkPuzQOn0hld5JbXcAm7-ONnsA5r7-OoDQpJ&currency=PHP"></script>
 <script>
-      paypal.Buttons().render('#paypal-button-container');
+     paypal.Buttons({
+        style: {
+        layout: 'horizontal',
+        color:  'blue',
+        shape:  'pill',
+        label:  'pay',
+        //if the tagline want to remove uncomment this section
+        // tagline: 'false', 
+  },
+  
+    createOrder: function(data,actions){
+        return actions.order.create({
+            purchase_units:[{
+                amount: {
+                    value: '<?php echo $total?>',
+              
+                }
+            }]
+        });
+    },
+    onApprove: function(data,actions){
+        return actions.order.capture().then(function(details){
+
+            window.location.replace("http://<?php echo $_SERVER['SERVER_NAME']?>/visualstudio/official_booking/User/success.php")
+            
+
+        })
+    }
+      }).render('#paypal-button-container');
     </script>
 </body>
 </html>
@@ -77,31 +105,10 @@ if(mysqli_num_rows($run_query)> 0){
 
 if(isset($_POST['book'])){
 
-    $dateCreated = date("Y-m-d h:i:s");
-    $dateUpdated = date("Y-m-d h:i:s");
- 
+    
     // na comment muna ang query para un comment nalang pag okay na ang paypall
     // wag kalimutan tanggalin ang session ng mga nasa taas 
-    // $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `date_time_created`,`date_time_updated`) 
-    // VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date', '$dateCreated', ' $dateUpdated')" ;
-    // $run_query_book = mysqli_query($conn,$query_book);
-  
-    
-  
-    // if($run_query_book){
-  
-    //     echo "<script>alert('Sucessful book')</script>";
-  
-    //   header("index.php");    
-      
-  
-    // }
-  
-    // else{
-  
-    //   $conn->error;
-    // }
-  
+   
 
 }
 
