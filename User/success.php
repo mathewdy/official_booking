@@ -33,7 +33,10 @@ $run_query_book = mysqli_query($conn,$query_book);
 
 if($run_query_book){
 
-  
+unset($destination_from);
+unset($user_id);
+header("Location: invoice.php");
+exit();
 
 }
 
