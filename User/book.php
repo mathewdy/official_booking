@@ -1,9 +1,20 @@
 <?php
 session_start();
 $user_id = $_SESSION['user_id'];
+echo $contact_number = $_SESSION['contact_number'];
+
 include('../connection.php');
 include('../session.php');
 date_default_timezone_set('Asia/Manila');
+
+$query_contact_number = "SELECT contact_number FROM users WHERE user_id = '$user_id' ";
+$run_contact_number = mysqli_query($conn,$query_contact_number);
+
+if(mysqli_num_rows($run_contact_number) > 0){
+    foreach($run_contact_number as $row_contact){
+         $row_contact ['contact_number'] ;
+    }
+}
 
 
 if(isset($_GET['pid'])){
@@ -85,7 +96,7 @@ if(isset($_GET['pid'])){
         <label for="">Destination From:</label>
         <input type="text" name="destination_from">
         <label for="">Destination To:</label>
-        <input type="text"  value="<?php if($place == $place) { echo "$place"; } else {"";} ?>" readonly>
+        <input type="text" name="destination_to"  value="<?php if($place == $place) { echo "$place"; } else {"";} ?>" readonly>
         <label for="">Departure Date</label>
         <input type="date" name="departure_date">
 
@@ -107,7 +118,9 @@ if(isset($_GET['pid'])){
 
 <?php
 if(isset($_POST['book'])){
+  
   $destination_from = $_POST['destination_from'];
+  $destination_to = $_POST['destination_to'];
   $pax = $_POST['pax'];
   //time nya mismo
   //echo "<br> " . "eto yung actual time : ";
@@ -174,13 +187,14 @@ if(mysqli_num_rows($validate) > 0  ){
 if($pax == 1){
 
   $_SESSION['destination_from'] = $destination_from;
+  $_SESSION['destination_to'] = $destination_to;
   $_SESSION['pax '] = $pax ;
   $_SESSION['departure_date'] = $departure_date;
   $_SESSION['return_date'] = $return_date;
   $_SESSION['place'] = $place;
       
-    echo "<script>alert('Successful booking')</script>";
-    header("location: payment.php");
+  echo "<script>alert('Successful booking')</script>";
+  header("location: payment.php");
 
 
 }
@@ -190,12 +204,12 @@ if($pax == 1){
 else if ($pax == 2 ){
 
   $_SESSION['destination_from'] = $destination_from;
+  $_SESSION['destination_to'] = $destination_to;
   $_SESSION['pax '] = $pax ;
   $_SESSION['departure_date'] = $departure_date;
   $_SESSION['return_date'] = $return_date;
   $_SESSION['place'] = $place;
-
- header("location: book-phase_2.php");    
+  header("location: book-phase_2.php");    
 
         
 }
@@ -204,6 +218,7 @@ else if ($pax == 2 ){
 else if($pax == 3){
 
   $_SESSION['destination_from'] = $destination_from;
+  $_SESSION['destination_to'] = $destination_to;
   $_SESSION['pax '] = $pax ;
   $_SESSION['departure_date'] = $departure_date;
   $_SESSION['return_date'] = $return_date;
@@ -217,6 +232,7 @@ else if($pax == 3){
 else if($pax == 4){
 
   $_SESSION['destination_from'] = $destination_from;
+  $_SESSION['destination_to'] = $destination_to;
   $_SESSION['pax '] = $pax ;
   $_SESSION['departure_date'] = $departure_date;
   $_SESSION['return_date'] = $return_date;

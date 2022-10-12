@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = "SELECT email, password, user_id FROM users WHERE email = '$email'";
+    $query = "SELECT email, password, user_id , contact_number FROM users WHERE email = '$email'";
     $result = mysqli_query($conn,$query);
 
     if (mysqli_num_rows($result)>0){
@@ -63,8 +63,10 @@ if(isset($_POST['submit'])){
                 //fetch mo muna yung user id, para ma sessidon papunta sa kabila 
                  $_SESSION['email'] = $email;
                  $_SESSION['user_id'] = $row['user_id'];
+                 $_SESSION['contact_number'] = $row['contact_number'];
+                 
                 header("location: index.php");
-                 die();
+                die();
 
                 
             } 

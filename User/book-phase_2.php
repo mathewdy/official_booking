@@ -1,5 +1,6 @@
 <?php
 session_start();
+echo $contact_number = $_SESSION['contact_number'];
 $user_id = $_SESSION['user_id'];
 include('../connection.php');
 include('../session.php');
@@ -99,7 +100,6 @@ if(isset($_POST['phase2_submit'])){
         
             if($run_guest_query_1){
                       
-            echo "<script>alert('Sucessful register')</script>";
             echo"<script>window.location.href='payment.php' </script>";
         
           }

@@ -1,12 +1,10 @@
 <?php
 session_start();
 $user_id = $_SESSION['user_id'];
-
+echo $contact_number = $_SESSION['contact_number'];
 
 include('../connection.php');
 include('../session.php');
-
-
 
  
 

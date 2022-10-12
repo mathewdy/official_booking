@@ -1,5 +1,7 @@
 <?php
 session_start();
+echo $contact_number = $_SESSION['contact_number'];
+
 $user_id = $_SESSION['user_id'];
 
 $destination_from = $_SESSION['destination_from'];
@@ -7,6 +9,9 @@ $pax = $_SESSION['pax '];
 $departure_date = $_SESSION['departure_date'];
 $return_date = $_SESSION['return_date'];
 $place = $_SESSION['place'];
+$destination_to = $_SESSION['destination_to'];
+
+
 
 include('../connection.php');
 include('../session.php');
@@ -22,6 +27,14 @@ if(mysqli_num_rows($run_query)> 0){
 }
 
 
+$query_contact_number = "SELECT contact_number FROM users WHERE user_id = '$user_id' ";
+$run_contact_number = mysqli_query($conn,$query_contact_number);
+
+if(mysqli_num_rows($run_contact_number) > 0){
+    foreach($run_contact_number as $row_contact){
+         $row_contact ['contact_number'] ;
+    }
+}
 
  
 
@@ -90,7 +103,7 @@ if(mysqli_num_rows($run_query)> 0){
     onApprove: function(data,actions){
         return actions.order.capture().then(function(details){
 
-            window.location.replace("http://<?php echo $_SERVER['SERVER_NAME']?>/visualstudio/official_booking/User/success.php")
+            window.location.replace("http://<?php echo $_SERVER['SERVER_NAME']?>/official_booking/User/success.php")
             
 
         })
