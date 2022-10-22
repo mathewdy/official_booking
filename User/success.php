@@ -2,7 +2,7 @@
 require_once '../vendor/autoload.php';
 session_start();
 //contact number ni user to 
-echo $contact_number = $_SESSION['contact_number'];
+$contact_number = $_SESSION['contact_number'];
 
 
 //booking details ni user
@@ -38,13 +38,13 @@ $run_query_book = mysqli_query($conn,$query_book);
 if($run_query_book){
   //sms notif
 
-  // $MessageBird = new \MessageBird\Client('RxMmhBj6lWcKOSqFQRAFg0Afh');
-  // $Message = new \MessageBird\Objects\Message();
-  // $Message->originator = '+639614507751';
-  // $Message->recipients = $contact_number;
-  // $Message->body = "Hi this is Team Agnat for your booking details ". "From: " . $destination_from. "To: ". $place . "Return Date: " . $return_date;
+  $MessageBird = new \MessageBird\Client('RxMmhBj6lWcKOSqFQRAFg0Afh');
+  $Message = new \MessageBird\Objects\Message();
+  $Message->originator = '+639614507751';
+  $Message->recipients = $contact_number;
+  $Message->body = "Hi this is Mariz travel and tours. for your booking details ". "From: " . $destination_from. "To: ". $place . "Return Date: " . $return_date;
   
-  // $MessageBird->messages->create($Message);
+  $MessageBird->messages->create($Message);
 
 
 

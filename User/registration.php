@@ -25,26 +25,26 @@ ob_start();
                         <div class="row g-4 p-2" style="border:none;">
                             <div class="col-lg-12">
                                 <h2 class="display-6 text-white pb-2" style="font-size: 2em; font-weight: 300; ">Sign Up</h2>
-                                <input type="text" name="first_name"  class="form-control py-2" placeholder="First Name">
+                                <input type="text" name="first_name"  class="form-control py-2" placeholder="First Name" maxlength="25" >
                             </div>
                             <div class="col-lg-12">
-                                <input type="text" name="middle_name" class="form-control py-2" placeholder="Middle Name">
+                                <input type="text" name="middle_name" class="form-control py-2" placeholder="Middle Name" maxlength="25">
                             </div>
                             <div class="col-lg-12">
-                                <input type="text" name="last_name" class="form-control py-2" placeholder="Last Name">
+                                <input type="text" name="last_name" class="form-control py-2" placeholder="Last Name" maxlength="25">
                             </div>
                             <div class="col-lg-12">
                                 <input placeholder="Date of birth" class="form-control py-2"  name="date_of_birth" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
                             </div>
                             <div class="col-lg-12">
                                 <!-- lagyan ito ng max input hanggang 10 lang at 0 lagi ang umpisa  -->
-                                <input type="number" name="contact_number" class="form-control py-2" placeholder="Contact Number"> 
+                                <input type="number" name="contact_number" class="form-control py-2" placeholder="Contact Number" maxlength="25"> 
                             </div>
                             <div class="col-lg-12">
-                                <input type="email"  name="email" class="form-control py-2" placeholder="Email">
+                                <input type="email"  name="email" class="form-control py-2" placeholder="Email" maxlength="25">
                             </div>
                             <div class="col-lg-12">
-                                <input type="password"  name="password" class="form-control py-2" placeholder="Password">
+                                <input type="password"  name="password" class="form-control py-2" placeholder="Password"maxlength="25" >
                             </div>
                             <div class="col-lg-12 text-center d-flex flex-column align-items-center">
                                 <input type="submit" class="btn btn-pink text-white text-center w-50 py-2 mb-2" name="registartion" value="Register">

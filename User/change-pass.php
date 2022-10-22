@@ -9,8 +9,6 @@ if(empty($_SESSION['email'])){
 }
 
 
-print_r($email);
-
 
 
 ?>
@@ -22,21 +20,40 @@ print_r($email);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Changepass</title>
+    <link rel="stylesheet" href="../src/styles/bs-5/bootstrap/dist/css/bootstrap.css">
+    <title>Forgot Password</title>
 </head>
-<body>
+<body class="bg-dark-accent">
+    <div class="container mx-auto">
+        <div class="col-lg-6 border">
 
-<form action="change-pass.php" method="POST">
+        </div>
+    <form action = "change-pass.php" method = "POST">
+        <div class="container  vh-100 text-center align-center mt-5 ">
+        <div class="row">
+            <div class="col-12">
+            <label class="text-whitesmoke"   for="">Password</label>
+            <input type="password" name="password" maxlength="25">
 
-<label for=""> New-Password </label>
-<input type="password" name="password" >
+            <label class="text-whitesmoke"   for="">Confirm Password</label>
+            <input type="password" name="new-password" maxlength="25">
 
-<label for="">re-type New-Password </label>
-<input type="password" name="new-password"  >
 
-<input type="submit" name="submit" value="Changepass">
+            </div>
+            <br>
+            <div class="col-12 text-center align-center mt-5">
+            <input type ="submit" name="submit" class="btn btn-primary" value="Change Pass">
+            </div>
+        </div>
+        </div>
+       
+
+
 
 </form>
+    </div>
+   
+
     
 </body>
 </html>

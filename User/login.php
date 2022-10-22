@@ -24,10 +24,10 @@ session_start();
                         <form action="login.php" method="POST">
                             <div class="row p-4 gy-4">
                                 <div class="col-lg-12">
-                                    <input type="email" class="form-control" name="email" placeholder="Email">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" maxlength="25">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="password" class="form-control" name="password" placeholder="Password">
+                                    <input type="password" class="form-control" name="password" placeholder="Password" maxlength="25">
                                 </div>
                                 <div class="col-lg-12">
                                     <input type="submit" class="btn btn-info-dark py-2 text-white w-100" name="submit" value="Login">

@@ -1,7 +1,7 @@
 <?php
 session_start();
 $user_id = $_SESSION['user_id'];
-echo $contact_number = $_SESSION['contact_number'];
+$contact_number = $_SESSION['contact_number'];
 
 include('../connection.php');
 include('../session.php');
@@ -23,6 +23,7 @@ date_default_timezone_set('Asia/Manila');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/styles/bs-5/bootstrap/dist/css/bootstrap.css">
     <title>Home</title>
 </head>
 <body>
@@ -34,12 +35,12 @@ date_default_timezone_set('Asia/Manila');
     <a href="logout.php">Logout</a>
 
 
-    <table>
+    <table class="table">
   
     <thead>
         <tr>
         <th>Place</th>
-        <th>Name of place</th>
+        <th scope="col">Name of place</th>
         <th>Amenities</th>
         <th>Inclusions</th>
         <th>Exclusions</th>
