@@ -16,7 +16,7 @@ if(isset($_SESSION['admin'])){
     <title>promos</title>
 </head>
 <body style="background-color:#ccc;">
-    <form action="#" method="POST" enctype="multipart/form-data">
+    <form action="#" method="POST" >
         <label>Places</label>
         <input type="file" name="places">
         <input type="text" name="name_of_place">
