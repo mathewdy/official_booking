@@ -87,11 +87,11 @@ if(mysqli_num_rows($run_contact_number) > 0){
         shape:  'pill',
         label:  'pay',
         //if the tagline want to remove uncomment this section
-        // tagline: 'false', 
+        // tagline: 'false, 
   },
   
     createOrder: function(data,actions){
-        return actions.order.create({
+        return actions.order.crzeate({
             purchase_units:[{
                 amount: {
                     value: '<?php echo $total?>',

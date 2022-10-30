@@ -32,6 +32,7 @@ date_default_timezone_set('Asia/Manila');
     <h1> Home </h1>
 
     <a href="logout.php">Logout</a>
+    <a href="send_proof_payment.php">Proof payment</a>
 
 
     <table>
