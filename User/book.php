@@ -86,20 +86,42 @@ if(isset($_GET['pid'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/styles/bs-5/bootstrap/dist/css/bootstrap.css">
     <title>Book</title>        
 </head>
-<body>
-  
-  
-      <form action="" method = "POST"> 
-
-        <label for="">Destination From:</label>
-        <input type="text" name="destination_from">
-        <label for="">Destination To:</label>
-        <input type="text" name="destination_to"  value="<?php if($place == $place) { echo "$place"; } else {"";} ?>" readonly>
-        <label for="">Departure Date</label>
-        <input type="date" name="departure_date">
-
+<body class="bg-dark-accent">
+<div class="container">
+        <div class="row gy-4 d-flex justify-content-center align-items-center vh-100">
+            <div class="col-lg-5 col-sm-12 ">
+                <div class="card bg-bright-dark-accent" style="border:none; border-radius: 30px;">
+                    <form action="book-phase_2.php" class="bg-bright-dark-accent px-4 py-2"  style="border:none; border-radius: 25px;" method="POST">
+                        <div class="row g-4 p-2" style="border:none;">
+                            <div class="col-lg-12">
+                            <label for="">Destination From:</label>
+                            <input type="text" name="destination_from">
+                            <label for="">Destination To:</label>
+                            <input type="text" name="destination_to"  value="<?php if($place == $place) { echo "$place"; } else {"";} ?>" readonly>
+        
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="email"  name="phase_2_email" class="form-control py-2" placeholder="Email" maxlength="25">
+                            </div>
+                            <div class="col-lg-12 text-center d-flex flex-column align-items-center">
+                                <input type="submit" class="btn btn-pink text-white text-center w-50 py-2 mb-2" name="phase2_submit" value="Register">
+                            
+                            </div>
+                        </div>
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="container">
+      <form action="" method = "POST" class="row"> 
+        <div class="col-12">
+        
+        </div>
         <!----dapat eto mapupunta yung data neto sa guest--->
         <label for="">How many person</label>
 
@@ -112,7 +134,7 @@ if(isset($_GET['pid'])){
             </select>
           <input type="submit" name="book" value="Book">
       </form>
-
+  </div>
 </body>
 </html>
 

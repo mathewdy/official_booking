@@ -486,7 +486,7 @@ $dompdf->render();
 
 
 
-$dompdf->stream("Book", Array("Attachment" =>0));
+$dompdf->stream("tickets", Array("Attachment" =>0));
 
 
 

@@ -30,13 +30,13 @@ use PHPMailer\PHPMailer\Exception;
                 $mail->isSMTP();                                            //Send using SMTP
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = '';    //don't forget the email                 //SMTP username // email username
-                $mail->Password   = '';     // passowrd                          //SMTP // email password password
+                $mail->Username   = 'thaddeusgamit31@gmail.com';    //don't forget the email                 //SMTP username // email username
+                $mail->Password   = 'drpekwnbrphrtaaz';     // passowrd                          //SMTP // email password password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             
                 //Recipients
-                $mail->SetFrom('');
+                $mail->SetFrom('thaddeusgamit31@gmail.com');
                 $mail->addAddress($email);
                       //Add a recipient
             
@@ -68,18 +68,35 @@ use PHPMailer\PHPMailer\Exception;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/styles/bs-5/bootstrap/dist/css/bootstrap.css">
     <title>Forgot Password</title>
 </head>
-<body>
+<body class="bg-dark-accent">
+    <div class="container mx-auto">
+        <div class="col-lg-6 border">
+
+        </div>
     <form action = "forgot-pass.php" method = "POST">
+        <div class="container  vh-100 text-center align-center mt-5 ">
+        <div class="row">
+            <div class="col-12">
+            <label class="text-whitesmoke"   for="">Email</label>
+            <input type="email" name="email" maxlength="25">
 
-    <label for="">Email</label>
-    <input type="email" name="email">
+            </div>
+            <br>
+            <div class="col-12 text-center align-center mt-5">
+            <input type ="submit" name="submit" class="btn btn-primary" value="Submit">
+            </div>
+        </div>
+        </div>
+       
 
-    <input type ="submit" name="submit" value="Submit">
 
-    </form>
 
+</form>
+    </div>
+   
 
     
 </body>
