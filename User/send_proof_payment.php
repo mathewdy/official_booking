@@ -92,7 +92,7 @@ include('../connection.php');
         $mail->addAddress($_POST['email']);
         $mail->Subject = 'This is a test';
         $mail->Body = $personName;
-        $mail->addStringAttachment($fileName , 'payment.pdf');
+        $mail->addStringAttachment($fileName , '../Admin/Proof_Payment');
 
         $mail->isHTML(true);
 
@@ -118,7 +118,7 @@ if(isset($_POST['submit']))
 
 
 
-    $img_types = array('img/jpg','image/png','image/jpeg');
+    $img_types = array('img/jpg','img/png','img/jpeg');
     $validate_img_extension = in_array($_FILES['bill']['type'],$img_types);
 
 
