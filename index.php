@@ -57,7 +57,7 @@
             <button type="button" style="border-radius: 50%; width:15px; height: 13px; outline:none; border: none; background: black;" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             <button type="button" style="border-radius: 50%; width:15px; height: 13px; outline:none; border: none; background: black;" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner vh-100">
+        <div class="carousel-inner" class="max-height: 100vh;">
             <div class="carousel-item active">
                 <img src="src/img/bg.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block" style="position: absolute; top: 50%; transform: translateY(-35%)">
@@ -97,7 +97,7 @@
         </button> -->
     </div>
 </div>
-<main class="p-5 mb-5 text-center" style="background:#F5F5F5;">
+<main class="p-5 text-center" style="background:#F5F5F5;">
     <span class="text-center">
         <p class="h3 lead" style="font-weight: 600;">Promo Flights</p>
     </span>
@@ -141,7 +141,7 @@
     <br>
     <br>
     <br>
-    <div class="container my-5">
+    <div class="container py-5">
         <p class="h4 text-start">Travel Guide</p>
         <div class="row d-flex justify-content-evenly align-items-center">
             <div class="col-lg-4">       
@@ -162,7 +162,7 @@
         </div>
     </div>
 </main>
-<div class="bg-dark-accent footer vh-75">
+<div class="bg-dark-accent footer p-5">
     <div class="container">
         <div class="row py-5">
             <div class="col-lg-6">
