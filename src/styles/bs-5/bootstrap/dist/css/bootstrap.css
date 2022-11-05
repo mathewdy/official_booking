@@ -89,6 +89,9 @@
 .bg-bright-dark-accent{
   background: var(--dark-light-accnt);
 }
+.bg-info-dark{
+  background: var(--info-dark);
+}
 *,
 *::before,
 *::after {
