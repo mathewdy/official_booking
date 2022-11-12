@@ -8,7 +8,7 @@ $contact_number = $_SESSION['contact_number'];
 //booking details ni user
 $user_id = $_SESSION['user_id'];
 $destination_from = $_SESSION['destination_from'];
-$pax = $_SESSION['pax'];
+$pax = $_SESSION['pax '];
 $departure_date = $_SESSION['departure_date'];
 $return_date = $_SESSION['return_date'];
 $place = $_SESSION['place'];
@@ -36,9 +36,9 @@ $run_query_book = mysqli_query($conn,$query_book);
 
 
 if($run_query_book){
-  //sms notif
+  // //sms notif
 
-  $MessageBird = new \MessageBird\Client('RxMmhBj6lWcKOSqFQRAFg0Afh');
+  $MessageBird = new \MessageBird\Client('tLYR1jknQtYcFwLOsiyIpg0Pz');
   $Message = new \MessageBird\Objects\Message();
   $Message->originator = '+639614507751';
   $Message->recipients = $contact_number;
@@ -51,8 +51,6 @@ if($run_query_book){
 
 
   // papunta to sa invoice nya (proof of payment)
-  unset($destination_from);
-  unset($user_id);
   header("Location: invoice.php");
   exit();
 
