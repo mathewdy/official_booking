@@ -16,8 +16,8 @@ if(isset($_SESSION['admin'])){
     <link rel="stylesheet" href="../src/styles/bs-5/bootstrap/dist/css/bootstrap.css">
     <title>Promos</title>
 </head>
-<body class="bg-slate-500">
-<nav class="navbar navbar-dark bg-dark">
+<body class="bg-dark-accent">
+<nav class="navbar navbar-dark bg-bright-dark-accent">
   <div class="container-fluid ">
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>

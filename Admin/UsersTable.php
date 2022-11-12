@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../src/styles/bs-5/bootstrap/dist/css/bootstrap.css">
     <title>Users</title>
 </head>
-<body class="bg-slate-500">
-<nav class="navbar navbar-dark bg-dark">
+<body class="bg-dark-accent">
+<nav class="navbar navbar-dark bg-bright-dark-accent">
   <div class="container-fluid ">
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+            <a class="nav-link" href="home.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="UsersTable.php">Users</a>
@@ -41,8 +41,8 @@
   </div>
 </nav>
 <div class="container mt-5">
-<div class="table-responsive">
-    <table id="data" class="table-striped table table-bordered table-hover">
+<div class="table-responsive card p-3">
+    <table id="data" class="table-striped table table-bordered table-hover pt-5">
         <thead>
             <tr>
                 <th>ID</th>
