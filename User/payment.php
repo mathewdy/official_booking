@@ -89,51 +89,31 @@ if(mysqli_num_rows($run_contact_number) > 0){
 <div id="paypal-button-container"></div>
     
 
-<script src="https://www.paypal.com/sdk/js?client-id=ATqOIxEwRpQm2Y8LSuy_1G59KrOuDgZVIqGdMbmjviN7RkPuzQOn0hld5JbXcAm7-ONnsA5r7-OoDQpJ&currency=PHP"></script>
-<script>
-     paypal.Buttons({
-        style: {
-        layout: 'horizontal',
-        color:  'blue',
-        shape:  'pill',
-        label:  'pay',
-        //if the tagline want to remove uncomment this section
-        // tagline: 'false, 
-  },
-  
-    createOrder: function(data,actions){
-        return actions.order.crzeate({
+<script src="https://www.paypal.com/sdk/js?client-id=ATqOIxEwRpQm2Y8LSuy_1G59KrOuDgZVIqGdMbmjviN7RkPuzQOn0hld5JbXcAm7-ONnsA5r7-OoDQpJ&currency=PHP
+">
+</script>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data,actions){
+        return actions.order.create({
             purchase_units:[{
                 amount: {
-                    value: '<?php echo $total?>',
+                    value: '<?php echo $total ?>',
               
                 }
             }]
         });
-    },
-    onApprove: function(data,actions){
+    }, onApprove: function(data,actions){
         return actions.order.capture().then(function(details){
 
-            window.location.replace("http://<?php echo $_SERVER['SERVER_NAME']?>/official_booking/User/success.php")
+            window.location.replace("http://<?php echo $_SERVER['SERVER_NAME']?>/visualstudio/official_booking/User/success.php")
             
 
         })
     }
-      }).render('#paypal-button-container');
+        }).render('#paypal-button-container');        
+
     </script>
+
 </body>
 </html>
-
-
-<?php
-
-if(isset($_POST['book'])){
-
-    
-    // na comment muna ang query para un comment nalang pag okay na ang paypall
-    // wag kalimutan tanggalin ang session ng mga nasa taas 
-   
-
-}
-
-?>

@@ -63,7 +63,7 @@ if (mysqli_num_rows($run_query_user)>0){
 
 $html.='
 
-    <h1> Welcome to your motherfuckin flight </h1>
+    <h1> Welcome to your flight </h1>
 
     <br>
 
