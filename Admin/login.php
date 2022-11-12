@@ -19,15 +19,15 @@
                 <h1 class="display-1 text-whitesmoke">Let's go and book Today!</h1>
             </div>
             <div class="col-lg-5 col-md-12">
-                <div class="card bg-bright-dark-accent" style="border: none; width: 30rem; border-radius: 5px;">
-                    <div class="card-body bg-bright-dark-accent" style="border:none; border-radius: 5px">
+                <div class="card bg-bright-dark-accent" style="border: 1px solid #393E46; width: 30rem;">
+                    <div class="card-body bg-bright-dark-accent" style="border:none;">
                         <form action="login.php" method="POST">
                             <div class="row p-4 gy-4">
                                 <div class="col-lg-12">
-                                    <input type="email" class="form-control" name="admin" placeholder="Email">
+                                    <input type="text" class="form-control" name="admin" placeholder="Email" maxlength="25">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="password" class="form-control" name="password" placeholder="Password">
+                                    <input type="password" class="form-control" name="password" placeholder="Password" maxlength="25">
                                 </div>
                                 <div class="col-lg-12">
                                     <input type="submit" class="btn btn-info-dark py-2 text-white w-100" name="submit" value="Login">
