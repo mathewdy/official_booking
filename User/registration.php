@@ -38,7 +38,7 @@ ob_start();
                             </div>
                             <div class="col-lg-12">
                                 <!-- lagyan ito ng max input hanggang 10 lang at 0 lagi ang umpisa  -->
-                                <input type="number" name="contact_number" class="form-control py-2" placeholder="Contact Number" maxlength="25"> 
+                                <input type="number" name="contact_number" class="form-control py-2" placeholder="912345671231" maxlength="25"> 
                             </div>
                             <div class="col-lg-12">
                                 <input type="email"  name="email" class="form-control py-2" placeholder="Email" maxlength="25">
@@ -78,7 +78,9 @@ if(isset($_POST['registartion'])){
     $middle_name = $_POST['middle_name'];
     $last_name = $_POST['last_name'];
     $date_of_birth = $_POST['date_of_birth'];
-    $contact_number = $_POST['contact_number'];
+    $number = $_POST['contact_number'];
+    $contact = "+63";
+    $contact_number = ($contact.$number);
     $email = $_POST['email'];
     $password = $_POST['password'];
 
