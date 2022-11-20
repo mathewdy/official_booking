@@ -107,7 +107,7 @@
                 <p class="h4">Manila</p>
                 <div class="row p-5">
                     <div class="col-lg-12 mb-3">
-                        <img src="src/img/boracay.jpg" class="w-100" height="200"alt="">
+                        <img src="src/img/manila1.jpg" class="w-100" height="200"alt="">
                     </div>
                     <div class="col-lg-12">
                         <img src="src/img/boracay.jpg" class="w-100" height="200" alt="">
@@ -118,7 +118,7 @@
                 <p class="h4">Cebu</p>
                 <div class="row p-5">
                     <div class="col-lg-12 mb-3">
-                        <img src="src/img/palawan.jpg" class="w-100" height="200" alt="">
+                        <img src="src/img/cebu.jpg" class="w-100" height="200" alt="">
                     </div>
                     <div class="col-lg-12">
                         <img src="src/img/palawan.jpg" class="w-100" height="200" alt="">
@@ -129,7 +129,7 @@
                 <p class="h4">Davao</p>
                 <div class="row p-5">
                     <div class="col-lg-12 mb-3">
-                        <img src="src/img/siargaoooo.jpg" class="w-100" height="200" alt="">
+                        <img src="src/img/davao.jpg" class="w-100" height="200" alt="">
                     </div>
                     <div class="col-lg-12">
                         <img src="src/img/siargaoooo.jpg" class="w-100" height="200" alt="">
@@ -146,12 +146,12 @@
         <div class="row d-flex justify-content-evenly align-items-center">
             <div class="col-lg-4">       
                 <div class="card w-75">
-                    <img src="src/img/boracay.jpg" alt="" class="card-img-top w-100" style="height: 60vh;">
+                    <img src="src/img/davao3.jpg" alt="" class="card-img-top w-100" style="height: 60vh;">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card">
-                    <img src="src/img/boracay.jpg" alt="" class="card-img-top w-100" style="height: 80vh;">
+                    <img src="src/img/mountains.webp" alt="" class="card-img-top w-100" style="height: 80vh;">
                 </div>
             </div>
             <div class="col-lg-4 d-flex justify-content-end">
@@ -160,7 +160,78 @@
                 </div>
             </div>
         </div>
+        Flights to Cebu
+While Cebu lures tourists with the promise of the perfect island getaway, at the center of it all is a booming metropolis complete with a highly developed urban landscape.
+
+A long and narrow island in Central Visayas (Region VII), Cebu is where the past and the future merge. Its thriving tourism industry – as evidenced by several daily flights to Cebu – banks on the island’s majestic coves, beautiful beaches, friendly locals and rich history. But its capital city, nicknamed fondly as the Queen City of the South, is a regional powerhouse that helps charge the national economy’s growth.
+
+The newly upgraded Mactan–Cebu International Airport serves flights to and from Cebu. This airport is located in Mactan Island’s Lapu-Lapu City, about 15km east of the Cebu capital.
+
+Linked to Metro Cebu by two bridges, the busy island of Mactan is a coral island with its share of great beaches and diving spots, and a host of accommodations to match. Many Mactan visitors also include island-hopping in the Bohol Strait in their itinerary.
+
+Keeping the province’s growth engine humming is Cebu City, a major center for business outsourcing such as call centers. Like many Asian cities, it’s pulsing with energy and activity, with a vibrant nightlife, shopping malls and gastronomic spots. But all this progress also means more cars on the roads, and while there are plans to build a Bus Rapid Transit system to help decongest the city, you should prepare yourself for a bit of traffic.
+
+HIGHLIGHTS
+
+Try out the Cebuanos’ famous lechon! Revered for its crispy skin and flavorful meat that comes in classic and spicy variants, lechon is sold in plenty of shops in Cebu — some places even pack it up for you to take on the plane.
+Cebu is home to a number of attractions for Catholic pilgrims like the Basilica Minore del Santo Niño and Magellan’s Cross.
+Travel outside the city and head to the coastal town of Oslob, which is a hotspot for spotting whale sharks, known locally as butanding or tuki.
+AIRPORTS
+
+Cebu Pacific has several flights to Cebu’s Mactan-Cebu International Airport.
+WHEN TO VISIT
+
+Plan your flight to Cebu in January for the city's famed Sinulog Festival, celebrated on the third Sunday of the month. This is Cebu’s most popular and grandest festival, drawing Christian pilgrims from around the archipelago and showcasing street dances and colorful
+
+Book flights to Cebu
+
+The largest airline in the Philippines, Cebu Pacific has multiple flights to Cebu from Manila, Clark and Davao, which may be reached via key hubs such as Hong Kong, Tokyo, Dubai, Seoul and Singapore, among others. Cebu Pacific offers cheap flights to Cebu and also operates the most flight connections to the rest of the Philippines' top beach, dive and island destinations, such as Palawan (El Nido), Siargao and Davao. With its seat sales and promos, Cebu Pacific's cheap flights make travel around the Philippines easy and convenient for everyone.
+
+<br>
+
+
+Flights to Davao
+Dabaw, as the locals call it, is the largest city in the Philippines with a land area of 2,443.61km². The city is located in Region XI, in the southeastern part of Mindanao. A flight to Davao will reveal many similarities with cities across Southeast Asia — the hot and humid climate, the crowds and cacophony of industrial sounds — it also has plenty of wide, open spaces and pockets of tranquility within and near the city.
+
+HIGHLIGHTS
+
+Bring the family to Davao Crocodile Park and learn about different species and sizes of crocodiles. Don't forget to say hi to the country's largest living croc, the 5.5m-long Pangil!
+Take a quick boat ride from either Santa Ana Wharf or Sasa Wharf to Samal Island, a white-sand beach dotted with resorts.
+Find peace and quiet in the middle of the metropolis at the Lon Hua Buddhist Temple.
+Support local and shop for organic and sustainable produce and products at the Dayaw Market.
+Don't leave Davao without trying durian - a prickly fruit with a distinctively pungent smell! If you’re not feeling that adventurous yet, try durian-based treats like tarts, candy, and even coffee.
+AIRPORT
+
+Cebu Pacific has several flights to Davao’s Francisco Bangoy International Airport
+WHEN TO VISIT
+
+The best time to book a flight to Davao is during the Kadayawan Festival, which happens every August. The city streets are flooded with vibrant colors and dancing to celebrate a good harvest and honor the unity between indigenous peoples.
+
+Book flights to Davao
+
+The largest airline in the Philippines, Cebu Pacific has multiple flights to Davao from Manila, which may be reached via key hubs such as Hong Kong, Tokyo, Dubai, Seoul and Singapore, among others. Cebu Pacific offers cheap flights to Davao and also operates the most flight connections to the rest of the Philippines' top beach, dive and island destinations, such as Palawan (El Nido), Siargao and Boracay (Caticlan) With its seat sales and promos, Cebu Pacific's cheap flights make travel around the Philippines easy and convenient for everyone.
     </div>
+
+
+
+
+
+
+    <!-----about to---->
+    About
+OUR COMPANY
+WCA provides affordable, competitive and quality travel accommodations and packages to individuals and families worldwide. The company is focused on marketing and distributing excellent options for every individual or family’s travel needs. WCA offers a wide range of accommodation options both locally and abroad spanning across leading domestic, regional and international destinations in Europe, Asia and America. With its highly skilled and motivated group of leaders, WCA assures its clients of quality, professional, and excellent travel services at the best possible price.
+
+
+MISSION
+To be of great help to every individual or family so they can have an extraordinary travel experiences by giving them only the best options for their travel needs.
+
+
+VISION
+WCA is to be the preferred travel company not only for our credibility in offering remarkable products and services but also for our ability to make a difference and touch people’s lives.
+
+
+
 </main>
 <div class="bg-dark-accent footer p-5">
     <div class="container">
@@ -194,7 +265,7 @@
                         </svg>
                     </span>
                     <span>
-                        <p class="text-white p-0 m-0 px-2">09701102521</p>
+                        <p class="text-white p-0 m-0 px-2">+639701102521</p>
                     </span>
                 </span>
                 <span class="d-flex flex-row align-items-center">
