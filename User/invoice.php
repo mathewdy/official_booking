@@ -29,8 +29,14 @@ $html='
 </head>
 
 <style>
-
-
+table, td{
+    width: 100%;
+}
+td{
+    padding:0 12px;
+    text-align: right;
+    font-weight: 800;
+}
 
 </style>
 
@@ -66,10 +72,13 @@ $html.='
     <h1> Flight Details </h1>
     <h2> Maris Travel & Tours agency by WCA </h2>
     <br>
-
-    <label> Total: '.$total.' </label>
-    <br>
-
+    <table>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>Total: '.$total.'</td>
+    </tr>
+    </table>
     <label> First name: '.$first_name.'</label>
     <br>
     <label> Middle name: '.$middle_name.' </label>
@@ -122,7 +131,10 @@ if($pax == 0){
     <label> To: '.$destination_to.'</label>
     <label> '.$return_date.'</label>
     <br>
-    
+    <br>
+    <hr>
+    <br>
+    <br>
    
      
 ';
@@ -177,9 +189,10 @@ if($pax == 1){
     <label> To: '.$destination_to.'</label>
     <label> '.$return_date.'</label>
     <br>
-
+    <br>
     <hr>
-    
+    <br>
+    <br>
     <label> First name: '. $guest_fname.'</label>
     <br>
     <label> Middle name: '.$guest_mname.' </label>
@@ -418,9 +431,10 @@ if($pax == 1){
     <label> To: '.$destination_to.'</label>
     <label> '.$return_date.'</label>
     <br>
-
+    <br>
     <hr>
-    
+    <br>
+    <br>
     <label> First name: '.$guest_fname.'</label>
     <br>
     <label> Middle name: '.$guest_mname.' </label>
@@ -435,9 +449,10 @@ if($pax == 1){
     <label> To: '.$destination_to.'</label>
     <label> '.$return_date.'</label>
     <br>
-
+    <br>
     <hr>
-
+    <br>
+    <br>
     <label> First name: '.$guest_fname_2.'</label>
     <br>
     <label> Middle name: '.$guest_mname_2.' </label>
@@ -452,9 +467,10 @@ if($pax == 1){
     <label> To: '.$destination_to.'</label>
     <label> '.$return_date.'</label>
     <br>
-
+    <br>
     <hr>
-
+    <br>
+    <br>
     <label> First name: '.$guest_fname_3.'</label>
     <br>
     <label> Middle name: '.$guest_mname_3.' </label>
@@ -479,7 +495,10 @@ if($pax == 1){
 
 $html.='
 
-    ____________________________________________________________________________________________
+    <br>
+    <br>
+    <hr>
+    <br>
     <br>
     <label>Connect With Us!</label>
     <br>
