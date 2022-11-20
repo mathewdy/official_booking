@@ -17,10 +17,12 @@ date_default_timezone_set('Asia/Manila');
 </head>
 <body class="bg-dark-accent">
 <div class="container">
+<a href="index.php">Cancel</a>
+
         <div class="row gy-4 d-flex justify-content-center align-items-center vh-100">
             <div class="col-lg-5 col-sm-12 ">
                 <div class="card bg-bright-dark-accent" style="border:none; border-radius: 30px;">
-                    <form action="book-phase_2.php" class="bg-bright-dark-accent px-4 py-2"  style="border:none; border-radius: 25px;" method="POST">
+                    <form action="" class="bg-bright-dark-accent px-4 py-2"  style="border:none; border-radius: 25px;" method="POST">
                         <div class="row g-4 p-2" style="border:none;">
                             <div class="col-lg-12">
                                 <h2 class="display-6 text-white pb-2" style="font-size: 2em; font-weight: 300; ">Please fill up the form for Guest 1</h2>

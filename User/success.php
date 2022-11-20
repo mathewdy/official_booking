@@ -12,6 +12,7 @@ $pax = $_SESSION['pax '];
 $departure_date = $_SESSION['departure_date'];
 $return_date = $_SESSION['return_date'];
 $place = $_SESSION['place'];
+$status = '1';
 
 include('../connection.php');
 include('../session.php');
@@ -28,8 +29,8 @@ if(mysqli_num_rows($run_query)> 0){
     $total = $pax * $price;
 }
 
-$query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`, `date_time_created`,`date_time_updated`) 
-VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date', '$dateCreated', ' $dateUpdated')" ;
+$query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`,`status`,`date_time_created`,`date_time_updated`) 
+VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date','$status', '$dateCreated', ' $dateUpdated')" ;
 $run_query_book = mysqli_query($conn,$query_book);
 
 
@@ -37,6 +38,8 @@ $run_query_book = mysqli_query($conn,$query_book);
 
 if($run_query_book){
   // //sms notif
+
+  /*
 
   $MessageBird = new \MessageBird\Client('tLYR1jknQtYcFwLOsiyIpg0Pz');
   $Message = new \MessageBird\Objects\Message();
@@ -47,11 +50,11 @@ if($run_query_book){
   $MessageBird->messages->create($Message);
 
 
-
+  */
 
 
   // papunta to sa invoice nya (proof of payment)
-  header("Location: invoice.php");
+  header("Location: invoice.php") ;
   exit();
 
 }

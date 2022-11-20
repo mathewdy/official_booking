@@ -91,6 +91,7 @@ if(isset($_GET['pid'])){
 </head>
 <body class="bg-dark-accent">
 <div class="container">
+  <a href="index.php">Cancel</a>
         <div class="row gy-4 d-flex justify-content-center align-items-center vh-100">
             <div class="col-lg-5 col-sm-12 ">
                 <div class="card bg-bright-dark-accent" style="border:none; border-radius: 30px;">
@@ -98,7 +99,24 @@ if(isset($_GET['pid'])){
                         <div class="row g-4 p-2" style="border:none;">
                             <div class="col-lg-12">
                             <label class="text-whitesmoke"  for="">Destination From:</label>
-                            <input type="text" name="destination_from">
+                            <select name="destination_from" id="">
+                              <option value="Manila">Manila</option>
+                              <option value="Quezon City">Quezon City</option>
+                              <option value="Caloocan">Caloocan</option>
+                              <option value="Las Piñas">Las Piñas</option>
+                              <option value="Makati">Makati</option>
+                              <option value="Malabon">Malabon</option>
+                              <option value="Mandaluyong">Mandaluyong</option>
+                              <option value="Marikina">Marikina</option>
+                              <option value="Muntinlupa">Muntinlupa</option>
+                              <option value="Navotas">Navotas</option>
+                              <option value="Parañaque">Parañaque</option>
+                              <option value="Pasay">Pasay</option>
+                              <option value="San Juan">San Juan</option>
+                              <option value="Taguig">Taguig</option>
+                              <option value="Valenzuela">Valenzuela</option>
+
+                            </select>
                             <label class="text-whitesmoke"  for="">Destination To:</label>
                             <input type="text" name="destination_to"  value="<?php if($place == $place) { echo "$place"; } else {"";} ?>" readonly>
                             <label class="text-whitesmoke"  for="">Departure Date:</label>

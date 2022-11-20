@@ -24,10 +24,10 @@ session_start();
                         <form action="login.php" method="POST">
                             <div class="row p-4 gy-4">
                                 <div class="col-lg-12">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" maxlength="25">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" >
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="password" class="form-control" name="password" placeholder="Password" maxlength="25">
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
                                 </div>
                                 <div class="col-lg-12">
                                     <input type="submit" class="btn btn-info-dark py-2 text-white w-100" name="submit" value="Login">
@@ -35,6 +35,8 @@ session_start();
                                 <div class="col-lg-12 gy-5 text-center">
                                     <a href="forgot-pass.php" class="h6 link text-whitesmoke w-100">Forgot Password?</a>
                                     <a href="registration.php" class="btn btn-pink text-white w-100 py-2 mt-2">Create New Account</a>
+                                    <a href="../index.php" class="h6 link text-whitesmoke w-100">Homepage</a>
+
                                 </div>
                                 <div class="col-lg-12">
                                 </div>

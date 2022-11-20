@@ -8,16 +8,13 @@ include('../session.php');
 date_default_timezone_set('Asia/Manila');
 
 
-
-
 $count_pax = "SELECT COUNT(guest_id) FROM guests WHERE user_id = '$user_id'";
 $result = mysqli_query($conn,$count_pax);
 $row=mysqli_fetch_array($result);
 
 $pax = $row[0];
 // end of counting paxs
-
-
+$total = $_SESSION['total'];
 // start of invoice
 
 //DESIGN
@@ -63,8 +60,14 @@ if (mysqli_num_rows($run_query_user)>0){
 
 $html.='
 
-    <h1> Welcome to your flight </h1>
 
+
+
+    <h1> Flight Details </h1>
+    <h2> Maris Travel & Tours agency by WCA </h2>
+    <br>
+
+    <label> Total: '.$total.' </label>
     <br>
 
     <label> First name: '.$first_name.'</label>
@@ -74,7 +77,9 @@ $html.='
     <label> Last name: '.$last_name.'</label>
     <br>
     <label> Contact number: '.$contact_number.' </label>
-     
+   
+
+
 ';
 
 
@@ -189,6 +194,9 @@ if($pax == 1){
     <label> To: '.$destination_to.'</label>
     <label> '.$return_date.'</label>
     <br>
+   
+  
+
 
     ';  
  
@@ -305,6 +313,8 @@ if($pax == 1){
     <label> To: '.$destination_to.'</label>
     <label> '.$return_date.'</label>
     <br>
+   
+  
 
     ';  
  
@@ -459,18 +469,30 @@ if($pax == 1){
     <label> To: '.$destination_to.'</label>
     <label> '.$return_date.'</label>
     <br>
+   
+    
 
     ';  
  
 
 }
 
+$html.='
 
-
-
-
-
-
+    ____________________________________________________________________________________________
+    <br>
+    <label>Connect With Us!</label>
+    <br>
+    <label>Facebook: Facebook.com/Packengotravels</label>
+    <br>
+    <label>Location: Baesa, Quezon City, Philippines</label>
+    <br>
+    <label>Contact Number: +639701102521</label>
+    <br>
+    <label>Email: packengoo@gmail.com</label>
+    <br>
+';  
+ 
 
 
 

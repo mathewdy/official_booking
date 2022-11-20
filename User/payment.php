@@ -11,7 +11,6 @@ $return_date = $_SESSION['return_date'];
 $place = $_SESSION['place'];
 $destination_to = $_SESSION['destination_to'];
 
-
 include('../connection.php');
 include('../session.php');
 date_default_timezone_set('Asia/Manila');
@@ -23,6 +22,7 @@ if(mysqli_num_rows($run_query)> 0){
     $row = mysqli_fetch_array($run_query);
     $price = $row['price'];
     $total = $pax * $price;
+    $_SESSION['total'] = $total;
 }
 
 
@@ -51,6 +51,7 @@ if(mysqli_num_rows($run_contact_number) > 0){
 <body class="bg-dark-accent">
     <div class="row gy-4 d-flex justify-content-center align-items-center vh-100">
         <div class="col-lg-5 col-sm-12 ">
+            <a href="index.php">Cancel</a>
             <div class="card bg-bright-dark-accent" style="border:none; border-radius: 30px;">
             <form action = "" class="bg-bright-dark-accent px-4 py-2"  style="border:none; border-radius: 25px;" method="POST">
             <h1 class="text-white text-center">Booking Details</h1>
@@ -85,9 +86,9 @@ if(mysqli_num_rows($run_contact_number) > 0){
         </div>
 
     </div>
+   
 
 <div id="paypal-button-container"></div>
-    
 
 <script src="https://www.paypal.com/sdk/js?client-id=ATqOIxEwRpQm2Y8LSuy_1G59KrOuDgZVIqGdMbmjviN7RkPuzQOn0hld5JbXcAm7-ONnsA5r7-OoDQpJ&currency=PHP
 ">
@@ -106,7 +107,7 @@ if(mysqli_num_rows($run_contact_number) > 0){
     }, onApprove: function(data,actions){
         return actions.order.capture().then(function(details){
 
-            window.location.replace("http://<?php echo $_SERVER['SERVER_NAME']?>/visualstudio/official_booking/User/success.php")
+            window.location.replace("http://<?php echo $_SERVER['SERVER_NAME']?>/official_booking/User/success.php")
             
 
         })
@@ -117,3 +118,64 @@ if(mysqli_num_rows($run_contact_number) > 0){
 
 </body>
 </html>
+
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+function sendMail($email,$destination_to,$total,$referrence_number,$image,$message){
+require_once 'PHPMailer2/Exception.php';
+require_once 'PHPMailer2/PHPMailer.php';
+require_once 'PHPMailer2/SMTP.php';
+$mail = new PHPMailer(true);
+
+   //email token sent 
+   try{
+        
+    $mail->isSMTP();
+    $mail->Host ='smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'mathewdalisay@gmail.com';
+    $mail->Password = 'dproewbecisldhec';
+    $mail->SMTPSecure = "tls";
+    $mail->Port = '587';
+    $mail->setFrom('mathewdalisay@gmail.com', 'Maris Travel & Tours agency by WCA');
+    $mail->addAddress($email);
+    $mail->isHTML(true);
+    $mail->Subject = 'Proof of Payment';
+    $mail->Body = $message;
+    $mail->addAttatchment($image, 'Proof of Payment');
+    $mail->send();
+
+    echo "<script>alert('Check your spam or junk mails') </script>";
+
+}catch(Exception $e){
+    echo "Error" .$e->getMessage();
+}
+
+}
+
+
+if(isset($_POST['send_payment'])){
+    date_default_timezone_set('Asia/Manila');
+    $dateCreated = date("Y-m-d h:i:s");
+    $dateUpdated = date("Y-m-d h:i:s");
+
+    $email = "mathewdalisay@gmail.com";
+    $referrence_number = $_POST['referrence_number'];
+    $message = "This is a proof of payment for" . $destination_to . "amounting" . $total . $referrence_number ;
+    $image = $_FILES['image']['name'];
+    $status = '0';
+
+
+    //allowed files
+    $query_book = "INSERT INTO `books`(`user_id` , `destination_from`, `destination_to`, `departure_date`, `return_date`,`status`,`date_time_created`,`date_time_updated`) 
+    VALUES ('$user_id', '$destination_from', '$place', '$departure_date', '$return_date','$status', '$dateCreated', ' $dateUpdated')" ;
+    $run_query_book = mysqli_query($conn,$query_book) && sendMail($email,$destination_to,$total,$referrence_number,$image,$message);
+
+    if($run_query_book){
+        move_uploaded_file($_FILES["image"]["tmp_name"], "uploads/".$_FILES["image"]["name"]);
+        echo "Added booking";
+    }else{
+        echo "error" . $conn->error;
+    }
+}
+?>

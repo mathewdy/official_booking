@@ -15,36 +15,6 @@ $sql = "SELECT * FROM users WHERE user_id = '$id'";
 $query = mysqli_query($conn, $sql);
 $rows = mysqli_fetch_assoc($query);
 
-
-
-
-
-
-
-// if(isset($_GET['invoice']))
-// {
-//     $invoice_id = $_GET['id_invoice'];
-
-
-
-
-
-//     {
-//         $sql = "SELECT * FROM guests";
-//         $Run = mysqli_query($conn, $sql);
-//         if(mysqli_num_rows($Run) > 0 ) {
-//             $rows = mysqli_fetch_array($Run);
-//             while(mysqli_fetch_array($Run));
-
-
-
-//             $html.='
-//                 <h2>'.$rows['last_name'].'</h2>
-//             ';
-//         }
-//     }
-// }
-
     
 
 
@@ -62,6 +32,6 @@ $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 // $dompdf->stream('invoice.pdf');
 
-$dompdf->stream("Placido del monte", ['Attachment'=>false]);
+$dompdf->stream("Flights", ['Attachment'=>false]);
 ?>
 

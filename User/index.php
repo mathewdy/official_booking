@@ -42,6 +42,7 @@ date_default_timezone_set('Asia/Manila');
             </svg>
           </a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+            <li><a class="dropdown-item" href="">History</a></li>
             <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
           </ul>
         </li>
@@ -50,47 +51,7 @@ date_default_timezone_set('Asia/Manila');
   </div>
 </nav>  
 <div class="container p-5">
-    <div class="wrapper py-3 text-end">
-        <a href="#" class="btn btn-sm btn-primary text-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Send Proof of Payment</a>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 display-6" style="font-weight: 500;" id="exampleModalLabel">Proof of payment</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="send_proof_payment.php" method="POST" enctype="multipart/form-data">
-                    <div class="modal-body text-start">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <label>Email</label>
-                            </div>
-                            <div class="col-lg-9 mb-3">
-                                <input type="email" name="email" class="form-control py-1">
-                            </div>
-                            <div class="col-lg-3">
-                                <label>Photo</label>
-                            </div>
-                            <div class="col-lg-9 mb-3">
-                                <input type="file" name="bill" class="form-control py-1">
-                            </div>
-                            <div class="col-lg-3">
-                                <label>Your Name</label>
-                            </div>
-                            <div class="col-lg-9 mb-3">
-                                <input type="text" name="person_name" class="form-control py-1">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" name="submit" class="btn btn-primary" value="Submit"> 
-                    </div>
-                </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <div class="table-responsive card">
         <table class="table">
             <thead>
