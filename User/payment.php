@@ -48,48 +48,83 @@ if(mysqli_num_rows($run_contact_number) > 0){
     <link rel="stylesheet" href="../src/styles/bs-5/bootstrap/dist/css/bootstrap.css">
     <title>Payment</title>
 </head>
-<body class="bg-dark-accent">
-    <div class="row gy-4 d-flex justify-content-center align-items-center vh-100">
-        <div class="col-lg-5 col-sm-12 ">
-            <a href="index.php">Cancel</a>
-            <div class="card bg-bright-dark-accent" style="border:none; border-radius: 30px;">
-            <form action = "" class="bg-bright-dark-accent px-4 py-2"  style="border:none; border-radius: 25px;" method="POST">
-            <h1 class="text-white text-center">Booking Details</h1>
-            <div class="col-lg-12">
-            <label class="text-white"  for="">Destination From:</label>
-        <input type="text" class="form-control py-2" name="destination_from" value=" <?php echo "$destination_from" ?>" readonly>
-            
-            </div>
-            <div class="col-lg-12">
-            <label class="text-white" for="">Destination To:</label>
-        <input type="text"  class="form-control py-2" value="<?php if($place == $place) { echo "$place"; } else {"";} ?>" readonly>
-            </div>
-            <div class="col-lg-12">
-            <label class="text-white" for="">Departure Date</label>
-        <input type="text"  class="form-control py-2" name="departure_date" value=" <?php echo "$departure_date" ?>" readonly>
-            </div>
-
-
-            <div class="col-lg-12">
-            <label class="text-white" for="">Return Date </label>
-        <input type="text"  class="form-control py-2" name="return_date" value=" <?php echo "$return_date" ?>"readonly>
-            </div>
-
-            <div class="col-lg-12">
-            <label class="text-white" for="">Price</label>
-        <input type="text"  class="form-control py-2" name="return_date" value=" <?php echo "$total" ?>"readonly>
-            </div>
-
-            </form>
-            </div>
-
-        </div>
-
+<body class="bg-dark-accent" style="overflow-x: hidden;">
+<nav class="navbar navbar-expand-lg bg-bright-dark-accent navbar-dark">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="#"></a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+            <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+            </svg>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+            <!-- <li><a class="dropdown-item" href="">History</a></li> -->
+            <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
-   
-
-<div id="paypal-button-container"></div>
-
+  </div>
+</nav> 
+<div class="container">
+    <div class="row mt-5 d-flex justify-content-center align-items-center ">
+        <div class="col-lg-8 col-sm-12">
+            <div class="card bg-bright-dark-accent p-5" style="border-radius: 0; background: #393E46;">
+                <form action="" class="" method="POST">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="text-white display-6 mt-3 mb-5">Booking Details</h1>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label class="text-white"  for="">Destination From :</label>
+                                    <input type="text" class="form-control py-2 px-0" name="destination_from" style="border: none; outline:none; background: none; pointer-events: none; color: rgba(255,255,255,0.6);" value=" <?php echo "$destination_from" ?>" readonly>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="text-white" for="">Destination To :</label>
+                                    <input type="text"  class="form-control py-2 px-0" style="border: none; outline:none; background: none; pointer-events: none; color: rgba(255,255,255,0.6);" value="<?php if($place == $place) { echo "$place"; } else {"";} ?>" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label class="text-white" for="">Departure Date :</label>
+                                    <input type="text"  class="form-control py-2 px-0" name="departure_date" style="border: none; outline:none; background: none; pointer-events: none; color: rgba(255,255,255,0.6);" value=" <?php $depart = date('F d, Y', strtotime($departure_date)); echo "$depart" ?>" readonly>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="text-white" for="">Return Date :</label>
+                                    <input type="text"  class="form-control py-2 px-0" name="return_date" style="border: none; outline:none; background: none; pointer-events: none; color: rgba(255,255,255,0.6);" value=" <?php echo $return = date('F d, Y', strtotime($return_date)); "$return" ?>"readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-5">
+                            <a href="index.php" class="btn btn-sm btn-pink text-light px-5" style="border-radius: 0;">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-4 mt-md-3 d-flex align-items-center">
+            <div class="card w-100 bg-bright-dark-accent p-5 pt-3" style="border-radius: 0; background: #393E46;">
+                <p class="h5 lead text-white text-center pt-0 ">Pay Via Paypal</p>
+                <hr class="featurette-divider mb-5">
+                <label class="text-white" for="">Total Price :</label>
+                <input type="text"  class="form-control py-2 mb-5" style="border-radius: 0;" name="return_date" value=" <?php echo "$total" ?>"readonly>
+                <div id="paypal-button-container" class="w-100"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../src/styles/bs-5/@popperjs/core/dist/umd/popper.js"></script>
+<script src="../src/styles/bs-5/bootstrap/dist/js/bootstrap.js"></script>
 <script src="https://www.paypal.com/sdk/js?client-id=ATqOIxEwRpQm2Y8LSuy_1G59KrOuDgZVIqGdMbmjviN7RkPuzQOn0hld5JbXcAm7-ONnsA5r7-OoDQpJ&currency=PHP
 ">
 </script>

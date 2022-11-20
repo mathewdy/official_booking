@@ -42,7 +42,7 @@ date_default_timezone_set('Asia/Manila');
             </svg>
           </a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-            <li><a class="dropdown-item" href="">History</a></li>
+            <!-- <li><a class="dropdown-item" href="">History</a></li> -->
             <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
           </ul>
         </li>
@@ -50,25 +50,9 @@ date_default_timezone_set('Asia/Manila');
     </div>
   </div>
 </nav>  
-<div class="container p-5">
-    
-    <div class="table-responsive card">
-        <table class="table">
-            <thead>
-                <tr>
-                <th>Place</th>
-                <th scope="col">Name of place</th>
-                <th>Amenities</th>
-                <th>Inclusions</th>
-                <th>Exclusions</th>
-                <th>Days</th>
-                <th>Price</th>
-                <th>Actions</th>
-
-                </tr>
-            
-            </thead>
-            <tbody>
+<div class="container">
+<div class="card bg-bright-dark-accent mt-5" style="border-radius: 0; background: #393E46;">
+        <div class="row">
             <?php
 
                 $sql = "SELECT * FROM promos ORDER BY id DESC ";
@@ -96,34 +80,39 @@ date_default_timezone_set('Asia/Manila');
                     //   $encrypted_data = (($lrn*12345678911*56789)/987654);
                     $book_link = "book.php?pid=" . $encryption;
                         $count++;
-
-        
                 ?>
-                <tr>
-                    <td>
-                        <?php echo '<img src="uploads/'.$row['place'].'" width="100px"; height:"100px;"' ?>
-                    </td>
                 
-                    <td><?php echo $row['name_of_place']?></td>
-                    <td><?php echo $row['amenities']?></td>
-                    <td><?php echo $row['inclusions']?></td>
-                    <td><?php echo $row['exclusions']?></td>
-                    <td><?php echo $row['days']?></td>
-                    <td><?php echo $row['price']?></td>
-                    <td>
-                    <a href="<?php echo $book_link ?>"> Book</a>
-                    </td>
-                </tr>
-                <?php
-                    }
+                <div class="col-lg-4">
+                    <div class="row ">
+                        <div class="col-lg-12 p-md-5">
+                            <?php echo '<img src="uploads/'.$row['place'].'" class="w-100" style="height: 150px; width:50px;">' ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 d-flex align-items-center">
+                    <div class="row w-100" style="color: rgba(255,255,255,0.6);">
+                        <div class="col-lg-5">
+                            <p><?php echo '<b>Place :</b> '. $row['name_of_place']?></p>
+                            <p><?php echo '<b>Inclusion :</b> '. $row['inclusions']?></p>
+                            <p><?php echo '<b>Exclusion :</b> '. $row['exclusions']?></p>
+                        </div>
+                        <div class="col-lg-5">
+                            <p><?php echo '<b>Days :</b> '. $row['days']?></p>
+                            <p><?php echo '<b>Amenities :</b> '. $row['amenities']?></p>
+                            <p><?php echo '<b>Price :</b> '. $row['price']?></p>
+                        </div>
+                        <div class="col-lg-2 d-flex justify-content-end align-items-start">
+                            <a href="<?php echo $book_link ?>" class="btn btn-sm px-5 btn-info-dark" style="border-radius: 0;"> Book</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
                 }
-                ?>
-
-            </tbody>
-        </table>
+            }
+            ?>
+        </div>
    </div>
 </div>
-
 
 
     <script src="../src/styles/bs-5/@popperjs/core/dist/umd/popper.js"></script>
