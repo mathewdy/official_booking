@@ -3,8 +3,13 @@ session_start();
 $user_id = $_SESSION['user_id'];
 $contact_number = $_SESSION['contact_number'];
 
-include('../connection.php');
-include('../session.php');
+$conn = new mysqli("localhost", "root" , "", "booking_system");
+ if(empty($_SESSION['email'])){
+        echo "<script>window.location.href='login.php' </script>";
+    }
+    if(empty($user_id)){
+        echo "<script>window.location.href='login.php' </script>";
+    }
 
  
 

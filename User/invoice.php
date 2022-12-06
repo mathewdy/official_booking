@@ -3,8 +3,16 @@ session_start();
 require_once 'dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 $user_id = $_SESSION['user_id'];
-include('../connection.php');
-include('../session.php');
+$conn = new mysqli("localhost", "root" , "", "booking_system");
+
+
+if(empty($_SESSION['email'])){
+    echo "<script>window.location.href='login.php' </script>";
+}
+if(empty($user_id)){
+    echo "<script>window.location.href='login.php' </script>";
+}
+
 date_default_timezone_set('Asia/Manila');
 
 

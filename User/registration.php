@@ -1,8 +1,8 @@
 <?php
 
-include('../connection.php');
-date_default_timezone_set('Asia/Manila');
 
+date_default_timezone_set('Asia/Manila');
+$conn = new mysqli("localhost", "root" , "", "booking_system");
 ob_start();
 ?>
 

@@ -14,8 +14,16 @@ $return_date = $_SESSION['return_date'];
 $place = $_SESSION['place'];
 $status = '1';
 
-include('../connection.php');
-include('../session.php');
+$conn = new mysqli("localhost", "root" , "", "booking_system");
+
+if(empty($_SESSION['email'])){
+  echo "<script>window.location.href='login.php' </script>";
+}
+if(empty($user_id)){
+  echo "<script>window.location.href='login.php' </script>";
+}
+
+
 date_default_timezone_set('Asia/Manila');
 $dateCreated = date("Y-m-d h:i:s");
 $dateUpdated = date("Y-m-d h:i:s");

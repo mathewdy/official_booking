@@ -11,8 +11,14 @@ $return_date = $_SESSION['return_date'];
 $place = $_SESSION['place'];
 $destination_to = $_SESSION['destination_to'];
 
-include('../connection.php');
-include('../session.php');
+
+$conn = new mysqli("localhost", "root" , "", "booking_system");
+if(empty($_SESSION['email'])){
+    echo "<script>window.location.href='login.php' </script>";
+}
+if(empty($user_id)){
+    echo "<script>window.location.href='login.php' </script>";
+}
 date_default_timezone_set('Asia/Manila');
 
 

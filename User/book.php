@@ -9,7 +9,14 @@ if($conn == FALSE){
     echo "error";
 }
 
-include('../session.php');
+if(empty($_SESSION['email'])){
+  echo "<script>window.location.href='login.php' </script>";
+}
+if(empty($user_id)){
+  echo "<script>window.location.href='login.php' </script>";
+}
+
+
 date_default_timezone_set('Asia/Manila');
 
 $query_contact_number = "SELECT contact_number FROM users WHERE user_id = '$user_id' ";
