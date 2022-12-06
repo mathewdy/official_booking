@@ -2,7 +2,12 @@
 session_start();
  $contact_number = $_SESSION['contact_number'];
 $user_id = $_SESSION['user_id'];
-include('../connection.php');
+$conn = new mysqli("localhost", "root" , "", "booking_system");
+
+if($conn == FALSE){
+    echo "error";
+}
+
 include('../session.php');
 date_default_timezone_set('Asia/Manila');
 ?>

@@ -1,5 +1,11 @@
 <?php
-include('../connection.php');
+
+$conn = new mysqli("localhost", "root" , "", "booking_system");
+
+if($conn == FALSE){
+    echo "error";
+}
+
 session_start();
 $email = $_SESSION['email'];
 date_default_timezone_set('Asia/Manila');
