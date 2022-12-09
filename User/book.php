@@ -192,6 +192,8 @@ if(isset($_GET['pid'])){
             </div>
         </div>
     </div>
+    <script src="../popper.js"></script>
+    <script src="../src/styles/bs-5/bootstrap/dist/js/bootstrap.js"></script>
 </body>
 </html>
 

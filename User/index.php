@@ -119,8 +119,8 @@ date_default_timezone_set('Asia/Manila');
    </div>
 </div>
 
-
-    <script src="../src/styles/bs-5/@popperjs/core/dist/umd/popper.js"></script>
+    <script src="../popper.js"></script>
+    <!-- <script src="../src/styles/bs-5/@popperjs/core/dist/umd/popper.js"></script> -->
     <script src="../src/styles/bs-5/bootstrap/dist/js/bootstrap.js"></script>
 </body>
 </html>

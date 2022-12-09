@@ -79,7 +79,7 @@ if(mysqli_num_rows($run_contact_number) > 0){
   </div>
 </nav> 
 <div class="container">
-    <div class="row mt-5 d-flex justify-content-center align-items-center ">
+    <div class="row mt-5 d-flex justify-content-center align-items-start ">
         <div class="col-lg-8 col-sm-12">
             <div class="card bg-bright-dark-accent p-5" style="border-radius: 0; background: #393E46;">
                 <form action="" class="" method="POST">
@@ -129,8 +129,6 @@ if(mysqli_num_rows($run_contact_number) > 0){
         </div>
     </div>
 </div>
-<script src="../src/styles/bs-5/@popperjs/core/dist/umd/popper.js"></script>
-<script src="../src/styles/bs-5/bootstrap/dist/js/bootstrap.js"></script>
 <script src="https://www.paypal.com/sdk/js?client-id=ATqOIxEwRpQm2Y8LSuy_1G59KrOuDgZVIqGdMbmjviN7RkPuzQOn0hld5JbXcAm7-ONnsA5r7-OoDQpJ&currency=PHP
 ">
 </script>
@@ -156,7 +154,10 @@ if(mysqli_num_rows($run_contact_number) > 0){
         }).render('#paypal-button-container');        
 
     </script>
+    <script src="../popper.js"></script>
 
+<!-- <script src="../src/styles/bs-5/@popperjs/core/dist/umd/popper.js"></script> -->
+<script src="../src/styles/bs-5/bootstrap/dist/js/bootstrap.js"></script>
 </body>
 </html>
 
